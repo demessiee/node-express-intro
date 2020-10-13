@@ -6,7 +6,7 @@
 
 
 *   Day 1 (8 hours)
-    *   [Unit 1A (2 hours): Node.js Overview and Environment Set Up](https://drive.google.com/file/d/1gpjKqG-HgTNJ-xWz9LsNIMYGQc4goUjT/view?usp=sharing) **_(Rachel)_**
+    *   [Unit 1A (2 hours): Node.js Overview and Environment Set Up](Unit-1A.md) **_(Rachel)_**
         *   Lecture (30 min)
             *   Node.js Overview
             *   REPL
