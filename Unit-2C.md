@@ -201,6 +201,41 @@ C. .sign()
 D. .jwt()
 ```
 
+## Config files with .env and the dotenv module
+
+In our JWT example we kept our private key in plain text, which is a bad practice that could lead to your key being comprompised. It is recommended to move all passwords, database connection strings, and environment variables to a config file that we can import into our code as needed.
+
+The [dotenv module](https://www.npmjs.com/package/dotenv) allows us to keep all our config values inside a simple .env file as key value pairs that look like this:
+
+```
+JWT_SECRET_KEY=mysecretkey
+DATABASE_STRING=mongodb://mongodb0.example.com:27017
+NODE_ENV=test
+```
+
+We can then simply reference them in our code with process.env just like any other environment variables:
+
+```
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
+console.log(JWT_SECRET_KEY)
+//prints mysecretkey
+```
+
+However, in order to do so, we have to first download and import the dotenv module into our code.
+
+We can download dotenv with:
+
+```
+npm install dotenv
+```
+
+Then import dotenv as early as possible in your index.js code(or whatever your server's entry point is):
+```
+require('dotenv').config()
+
+```
+
+
 ## Bcrypt
 
 Bcrypt is a third party node module that lets you salt your password. Salting is when you encrypt your password by combining your password with some random salt data and then hashing the entire sult.
