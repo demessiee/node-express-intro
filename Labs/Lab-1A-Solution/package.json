@@ -1,0 +1,14 @@
+{
+  "name": "lab-1a-solution",
+  "version": "1.0.0",
+  "description": "solution for Unit 1-A lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}

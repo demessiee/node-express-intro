@@ -1,0 +1,15 @@
+{
+  "name": "lab-1c-starter",
+  "version": "1.0.0",
+  "description": "starter code for Unit 1-C lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "node-fetch": "^2.6.1"
+  }
+}
