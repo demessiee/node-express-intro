@@ -97,4 +97,4 @@
         *   Project Overview (30 min)
             *   Review what we learned so far and go over project details
         *   Project Time(3 hours and 30 min)
-            *   Student will be given requirements to build an API and will set up a CI/CD pipeline to build and deploy it
+            *   Student will be given requirements to build an API, add authentication and authorization requirements, and save the data to a MongBD database.
