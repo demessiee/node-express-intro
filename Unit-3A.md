@@ -66,7 +66,7 @@ Next, in the scripts section of your `package.json` file, add in the following t
 ```js
 {
   "scripts": {
-    "test": "jest"
+    "test": "jest --env=node"
   }
 }
 ```
@@ -87,6 +87,8 @@ Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        1.654 s
 ```
+
+**Warning:** We have to specify "jest --env=node" instead of just using "jest" because we need to tell Jest that we are evaluating the Node.js version of the JavaScript runtime and not browser version. There are small differences that occur on the two versions such as when you make fetch or axios calls on the server versus the client.
 
 ## Writing Tests with Jest
 
