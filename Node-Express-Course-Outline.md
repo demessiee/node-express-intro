@@ -88,7 +88,7 @@
             *   Reading and Debugging from CircleCI reports
         *   Lab (1 hr 30 min)
             *   The student will set up a CI/CD pipeline with node.js and express
-    *   [Final Project ( 4 hours)](Node-Express-Final.md) **_(Rachel)_**
+    *   [Final Project ( 4 hours)](./Lab-Node-Express-Final-Project-Starter/README.md) **_(Rachel)_**
         *   Project Overview (30 min)
             *   Review what we learned so far and go over project details
         *   Project Time(3 hours and 30 min)
