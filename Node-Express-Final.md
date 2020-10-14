@@ -1,5 +1,4 @@
-## Final Project
-
+## Node and Express Course Final Project
 
 ### Final Project Overview
 
