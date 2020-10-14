@@ -70,9 +70,11 @@ You can close the REPL by running *Ctrl+D* or by typing *.exit*
 
 ## Running a Node.js file
 
-Create a file named index.js in your project directory:
+Create a project directory for this lab and create a file named index.js in your project directory:
 
 ```
+mkdir lab1a
+cd lab1a
 touch index.js
 ```
 
@@ -127,9 +129,9 @@ You are in folder `/home` and you have a file in `/home/src/myFile.js` that you 
 
 ```
 A. node myFile.js
-B. node ./src 
-C. node ./src/myFile.js
-D. node /src/myFile.js
+B. node ./src .
+C. node ./src myFile.js
+D. node /src myFile.js
 ```
 
 ## Review of ES6 JavaScript
@@ -151,12 +153,12 @@ var z = 3
     * can be updated
     * functionally scoped
 * const - use this for variables that stay constant
-    * can not be redeclared, 
-    * can not be updated
+    * can not be declared, 
+    * can be updated
     * scoped to the nearest block
     * must be initialized upon declaration
 * let - use this for all other variables
-    * can not be redeclared
+    * can not be reclared
     * can be updated
     * scoped to the nearest block
 
