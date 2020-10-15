@@ -115,15 +115,15 @@ Create a new file in `/src/Hello.js` with the following contents:
 
 ```jsx
 //Hello.js
-import React from 'react' //1.
+import React from 'react' 
 
-function Hello(){ //2. 
+function Hello(){ 
   return (
-    <div>My first React component</div> //3.
+    <div>My first React component</div> 
   )
 }
 
-export default Hello //4.
+export default Hello 
 ```
 
 Lets analyze the 4 steps that are going on:
@@ -483,6 +483,8 @@ Here are list of common HTML elements:
 * `<h1>` - used for headers (can use h1-h6 for varying font size)
 * `<a>`- used for links
 * `<img>` - used for images
+* `<button` - for clickable buttons
+* `<input>` - for input forms
 
 
 ### HTML element attributes
