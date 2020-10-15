@@ -438,5 +438,66 @@ For now, we just added the button and made the click event handler send an alert
 
 Now lets add the current form data information to a list, and then render the list information using the Table component we made earlier. 
 
+```jsx
+//App.js
+import React, {useState} from 'react'
+import Table from './Table.js'
+
+function App(){
+    const [peopleList,setPeopleList] = useState([])
+    const [val,setVal] = useState({
+      full_name:"default name",
+      description:"default description",
+      isGoing:false
+    })
+    const handleChange = (e) => {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        
+        let temp = {...val}
+        temp[name] = value
+        console.log(temp)
+
+        setVal(temp)
+    }
+
+    const handleClick = (e) => {
+        console.log(peopleList)
+        setPeopleList([...peopleList,val])
+    }
+    return (
+        <div>
+            <h1>Full Name</h1>
+              <input name = "full_name" value= {val.full_name} onChange={handleChange} />
+
+              <h1>Description</h1>
+              <textarea name = "description" value = {val.description} onChange={handleChange} />
+
+              <h1>Going?</h1>
+              <input name = "isGoing" type="checkbox" value = {val.isGoing} onChange={handleChange} />
+
+              <button onClick={handleClick}>Submit</button>
+              <Table people={peopleList}/>
+        </div>
+
+    )
+}
+
+export default App
+
+```
+In the above example, we added the following things:
+1. Imported Table.js
+2. Added a state variable for holding our list of people named peopleList
+    1. Set the default state for peopleList to be an empty array
+    2. Created, setPeopleList() which can be used to change the state of peopleList
+3. edited handleChange so that it appends the input form state value onto the end of peopleList and saves that new value with setPeopleList()
+4. Rendered a Table component at the bottom and passed peopleList as a `props`
+
+### Removing Items from a List
+
+### Styling it up
+
 
 ## Composition

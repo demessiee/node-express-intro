@@ -30,7 +30,7 @@ To complete the lab:
 
 ## Lab Starter Code
 
-You will be given starter code that has a basic express app set up. It is up to you to add in the endpoints and expose the static assets. The employee data JSON file will be imported for you to use just like any normal object.
+You will be given starter code that has a basic express app set up. It is up to you to add in the endpoints and expose the static assets. There will be some starter code to show you how to read the from a JSON file and print the result.
 
 Make to install all of the dependencies with 
 ```

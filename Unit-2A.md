@@ -595,7 +595,7 @@ Here are the default values you should use if any of the body properties are mis
 
 
 ### Additional Lab Requirements
-* Your endpoints should be reading and writing from the employee_data.json file.
+* Your endpoints should be reading and writing from the employee_data.json file. When reading from the file make sure to use JSON.parse() to convert the file text into a JSON object. Also be sure to use JSON.stringify() to convert any JavaScript objects into text strings before you write them out to the employee_data.json file.
 
 * The POST, PUT, and DELETE endpoints should return the endpoint that was just added/updated/deleted back to the client.
 

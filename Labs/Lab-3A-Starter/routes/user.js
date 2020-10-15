@@ -49,7 +49,7 @@ router.post('/signup', (req, res) => {
           password: hash
         })
         let result = await user.save()
-        res.json(result) //dont send password hash back to the client
+        res.send("Successfully Logged In!") //dont send password hash back to the client
     });
 
 })

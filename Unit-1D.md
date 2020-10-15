@@ -209,6 +209,7 @@ app.get('/api/items/:id', (req, res) => {
 
 Now if you try to provide an id that is out of bounds you will see `Error: "id does not exist` along with a stack trace of where the issue occured for debugging. This will also show up in the console if you try to Fetch the endpoint with fetch().
 
+**Warning**: If you throw an error and don't handle it, it will kill your API server and you will have to restart your server. If you just want to send a failure message to indicate that the client made a bad request, use `res.status(400).send("Bad Request Message")` instead.
 
 ## Knowledge Check 2
 
