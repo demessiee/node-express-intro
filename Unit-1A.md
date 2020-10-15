@@ -3,6 +3,7 @@
 ## Lecture Overview
 
 This lecture will cover the following topics:
+ * What is Node.js
  * How to set up a local Node.js development environment
  * How to use the Node.js console
  * How to run a node.js file
@@ -16,6 +17,21 @@ It is recommended to follow along by making a project directory for this lecture
 mkdir lecture1A
 cd lecture1A
 ```
+## What is Node.js?
+
+Node.js is a server-side platform built on Chrome's JavaScript engine. 
+
+Here are some benefits of Node.js:
+* Node.js allows you to develop server-side code using JavaScript
+* Less context switching between the client code and server code since both use JavaScript
+* Node.js APIs are asynchronous and event-driven, meaning they are non-blocking
+* Lightweight, but still very fast for handling I/O
+
+When should you use not use Node.js:
+* It is not advisable to use Node.js for CPU intensive applications.
+* If you need to use multi-threading
+
+
 
 ## Setting up a Node.js environment
 
