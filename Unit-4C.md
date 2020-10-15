@@ -150,19 +150,19 @@ function App(){
     return (
         <table border={"1px solid black"}>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
+                <th>Full Name</th>
+                <th>Description</th>
+                <th>Going?</th>
             </tr>
             <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
+                <td>Jill Smith</td>
+                <td>Black Hair, 5.5 inches tall, 50 years old</td>
+                <td>Yes</td>
             </tr>
             <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
+                <td>Eve Jackson</td>
+                <td>Red Hair, 5.2 inches tall, 94 years old</td>
+                <td>No</td>
             </tr>
         </table>
     )
@@ -183,9 +183,9 @@ import React from 'react'
 function TableHeader(){
     return (
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
+            <th>Full Name</th>
+            <th>Description</th>
+            <th>Going?</th>
         </tr>
     )
 }
@@ -202,9 +202,9 @@ import React from 'react'
 function TableBody(props){
     return (
         <tr>
-            <td>{props.first_name}</td>
-            <td>{props.last_name}</td>
-            <td>{props.age}</td>
+            <td>{props.full_name}</td>
+            <td>{props.description}</td>
+            <td>{props.isGoing? "yes" : "no"}</td>
         </tr>
     )
 }
@@ -244,8 +244,8 @@ import Table from './Table.js'
 
 function App(){
     let peopleList = [
-        {first_name:"Jill",last_name:"Smith",age:50},
-        {first_name:"Eve",last_name:"Jackson",age:94},
+        {full_name:"Jill Smith",description:"Black Hair, 5.5 inches tall, 50 years old",age:50},
+        {full_name:"Eve Jackson",description:"Red Hair, 5.2 inches tall, 94 years old"},
 
     ]
     return (
@@ -316,6 +316,127 @@ Here's how we transformed our Uncontrolled Component into a Controlled Component
 2. We created an event handler to update `val` to be the value in the input form
 3. We tied the value of the input form with `val` so that our React state is the source of truth for the input form displayed text.
 
+**Additional Context**: When doing any sort of event handling, an event object, `e`, will be passed down as an argument to the event handler. `e.target` will usually contain the information you need, including the target value.
+
+## Handling Multiple Forms
+
+What if we want to handle multiple form inputs? Do we set a useState() variable for each input?
+
+We could do that, however there is a better way that involves using one state object that holds all the different form input values as properties.
+
+
+```jsx
+//App.js
+import React, {useState} from 'react'
+
+function App(){
+    const [val,setVal] = useState({
+      full_name:"default name",
+      description:"default description",
+      isGoing:false
+    })
+    const handleChange = (e) => {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        
+        let temp = {...val}
+        temp[name] = value
+        console.log(temp)
+
+        setVal(temp)
+    }
+    return (
+        <div>
+            <h1>Full Name</h1>
+            <input name = "full_name" value= {val.full_name} onChange={handleChange} />
+
+            <h1>Description</h1>
+            <textarea name = "description" value = {val.description} onChange={handleChange} />
+
+            <h1>Going?</h1>
+            <input name = "isGoing" type="checkbox" value = {val.isGoing} onChange={handleChange} />
+        </div>
+
+    )
+}
+
+export default App
+
+```
+What did we do here?
+1. We made the component return three different input elements:
+    * input
+    * textarea
+    * checkbox
+2. We changed the state value to be an object with three properties to represent the three different input state values. We also added some default values.
+3. We modified the `value` attribute on each of the input elements to only take the state property that represented its input state.
+4. We added a `name` attribute to each of the input elements that is the same as the property name on the state object for that input element. This allows us to pass a `name` in the `onChange` event handler and use it to assign the appropriate property on the state object.
+
+
+**Additional Context**: When doing any sort of event handling, an event object, `e`, will be passed down as an argument to the event handler. `e.target` will usually contain the information you need, including the target name and target value.
+
+**Note:** You can turn an `<input>` element into a checkbox by assigning its `type` attribute to be `checkbox`. Checkboxes use `target.checked` instead of `target.value` to hold its input value, so we had to add some simple logic to get the appropriate value out of the target.
+```js
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+```
+
+
+## Submitting Form Values with Buttons
+
+We usually want to have a button that will allow us to do something with our form input data, whether thats to insert it to a database or add it to a list.
+
+We can do that by adding a click event handler to a `<button>` element. This way, when a user clicks the button, the click event handler will access our form data through our state and then do whatever processing is necessary on the form data:
+
+
+```jsx
+//App.js
+import React, {useState} from 'react'
+
+function App(){
+    const [val,setVal] = useState({
+      full_name:"default name",
+      description:"default description",
+      isGoing:false
+    })
+    const handleChange = (e) => {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        
+        let temp = {...val}
+        temp[name] = value
+        console.log(temp)
+
+        setVal(temp)
+    }
+
+    const handleClick = (e) => {
+        alert(val)
+    }
+    return (
+        <div>
+            <h1>Full Name</h1>
+            <input name = "full_name" value= {val.full_name} onChange={handleChange} />
+
+            <h1>Description</h1>
+            <textarea name = "description" value = {val.description} onChange={handleChange} />
+
+            <h1>Going?</h1>
+            <input name = "isGoing" type="checkbox" value = {val.isGoing} onChange={handleChange} />
+
+            <button onClick={handleClick}>Submit</button>
+        </div>
+
+    )
+}
+
+export default App
+
+```
+For now, we just added the button and made the click event handler send an alert() with the form data information.
+
+Now lets add the current form data information to a list, and then render the list information using the Table component we made earlier. 
 
 
 ## Composition
