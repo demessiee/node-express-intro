@@ -485,6 +485,8 @@ Here are list of common HTML elements:
 * `<img>` - used for images
 * `<button` - for clickable buttons
 * `<input>` - for input forms
+* `<li>` - list item, can be bulleted or numbered 
+* `<table>` - used to create tables
 
 
 ### HTML element attributes
