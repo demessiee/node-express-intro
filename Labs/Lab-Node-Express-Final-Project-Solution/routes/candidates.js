@@ -37,7 +37,8 @@ router.post('/candidates/candidate', async (req, res) => {
 
     bcrypt.hash(req.body.password, 10, async (err, hash) => {
         if(err)
-          throw new Error(err)
+            res.status(400).send("Hashing Error")
+
 
         let candidate = new Candidate({ 
             _id: req.body.id, 
@@ -88,7 +89,8 @@ router.get('/candidates/candidate/:id/jobs', candidateAuth, async (req, res) => 
 router.post('/candidates/login', (req, res) => {
     Candidate.findOne({_id: req.body.id, function(err,result) { 
         if(err)
-            throw new Error("")
+            res.status(400).send("Database Error")
+
         if(result === null)
             res.send("Invalid login credentials")
         else{

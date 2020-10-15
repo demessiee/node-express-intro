@@ -1,5 +1,4 @@
 const express = require('express')
-const json = require('../public/employee_data.json')
 const Employee = require('../models/employee.js')
 const jwtAuth = require('../middleware/jwtAuth.js')
 
@@ -65,7 +64,7 @@ router.post('/employee', async (req, res) => {
         salary:req.body.salary || 0
     })
     if(req.body.id === null)
-        throw new Error("id is null")
+        res.status(400).send("id not found")
 
     let result = employee.save()
     res.json(result)
@@ -85,7 +84,7 @@ router.put('/employee', async (req, res) => {
         salary:req.body.salary || 0
     })
     if(req.body.id === null)
-        throw new Error("id is null")
+        res.status(400).send("id not found")
 
     let result = employee.save()
     res.json(result)
@@ -93,8 +92,10 @@ router.put('/employee', async (req, res) => {
 
 router.delete('/employee', async (req, res) => {
     if(req.params.id === null)
-        throw new Error("id is null")
-    Item.deleteOne({_id:req.params.id})
+        res.status(400).send("id not found")
+
+    let result = await Item.deleteOne({_id:req.params.id})
+    res.json(result)
 })
 
 module.exports = router

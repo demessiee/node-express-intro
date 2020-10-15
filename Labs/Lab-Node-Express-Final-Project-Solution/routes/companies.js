@@ -36,7 +36,7 @@ router.post('/companies/company', async (req, res) => {
 
     bcrypt.hash(req.body.password, 10, async (err, hash) => {
         if(err)
-          throw new Error(err)
+            res.status(400).send("Hashing Error")
 
         let company = new Company({ 
             _id: req.body.id, 
@@ -72,7 +72,7 @@ router.delete('/companies/company/:id', companyAuth, async (req, res) => {
 router.post('/companies/login', (req, res) => {
     Companies.findOne({_id: req.body.id, function(err,result) { 
         if(err)
-            throw new Error("")
+            res.status(400).send("Database Error")
         if(result === null)
             res.send("Invalid login credentials")
         else{
