@@ -606,7 +606,7 @@ Here are the default values you should use if any of the body properties are mis
 ## Lab Starter Code
 
 
-Your lab for Unit 2A will start off where your lab for unit 1D ended off.
+Your lab for Unit 2A will start off where your lab for unit 1D ended off. If you need a fresh copy of employee_data.json there is a master copy you can copy into your employee_data.json file.
 
 You can clone your starter code here:
 [LINK]
@@ -628,7 +628,6 @@ Test your solution with the Advanced REST Client to verify that all your endpoin
 
 You can find the lab solution here:
 [LINK]
-
 # Knowledge Check Answers
 
 ## Knowledge Check 1
