@@ -169,12 +169,12 @@ var z = 3
     * can be updated
     * functionally scoped
 * const - use this for variables that stay constant
-    * can not be declared, 
-    * can be updated
+    * can not be redeclared, 
+    * can not be updated
     * scoped to the nearest block
     * must be initialized upon declaration
 * let - use this for all other variables
-    * can not be reclared
+    * can not be redeclared
     * can be updated
     * scoped to the nearest block
 
