@@ -145,9 +145,9 @@ You are in folder `/home` and you have a file in `/home/src/myFile.js` that you 
 
 ```
 A. node myFile.js
-B. node ./src .
-C. node ./src myFile.js
-D. node /src myFile.js
+B. node ./src
+C. node ./src/myFile.js
+D. node /src/myFile.js
 ```
 
 ## Review of ES6 JavaScript
