@@ -1,7 +1,8 @@
-# Unit 4-B Lecture
+# Unit 4-C Lecture
 
 In this lecture we will cover:
 * Lists and Keys
+* Tables
 * Forms
 * Composition
 
@@ -9,8 +10,8 @@ In this lecture we will cover:
 It is recommended to follow along by making a project directory for this lecture and running the code samples:
 
 ```
-mkdir lecture4B
-cd lecture4B
+mkdir lecture4C
+cd lecture4C
 ```
 
 ## Lists and Keys
