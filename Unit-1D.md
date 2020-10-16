@@ -2,11 +2,12 @@
 
 This lecture will cover the following topics:
 
-* APIs
+* Overview of APIs
 * Express
 * Basic Routing
 * GET Requests
 * Sending JSON
+* URL Parameters
 * Serving static assets
 
 
