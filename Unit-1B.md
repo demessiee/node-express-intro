@@ -281,7 +281,7 @@ Hello World
 ```
 
 ```js
-var fs = require("fs");
+const fs = require("fs");
 
 fs.readFile("file.txt", "utf-8", (err, data) => {
   if(err){
@@ -303,9 +303,9 @@ If there is an error such as the file doesn't exist or you dont have read permis
 You can use the fs.writeFile() method to rewrite an existing file or create a new file and write to it.
 
 ```js
-var fs = require("fs");
+const fs = require("fs");
 
-var data = "New File Contents";
+const data = "New File Contents";
 
 fs.writeFile("newFile.txt", data, (err) => {
   if (err) console.log(err);

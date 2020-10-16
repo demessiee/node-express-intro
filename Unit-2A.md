@@ -418,7 +418,7 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 
-var corsOptions = {
+const corsOptions = {
   origin: 'http://example.com', //allows requests originating from example.com
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
@@ -492,8 +492,8 @@ Luckily, express has a way to add routes to our server as middleware route handl
 
 ```js
 //routes/items.js
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
 //any middleware added here will only apply to routes in this file
 router.use(express.json()); //middleware to parse JSON bodies for POST requests
