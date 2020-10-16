@@ -281,11 +281,11 @@ If we go to localhost:3000, we can see the input form and type it in. However, w
 
 There are several types of HTML elements that store their own data in the DOM:
 
-* <input> - for short string of text
-* <select> - for dropdown lists
-* <textarea> - for entering large paragraphs of text
+* `<input>` - for short string of text
+* `<select>` - for dropdown lists
+* `<textarea>`- for entering large paragraphs of text
 
-In React, it is a best practice to have React be the source of truth for all state data. Therefore, we want to somehow tie the DOM data from user input HTML elements such as <input> into the React component state. When we do this, we are creating a Controlled Component.
+In React, it is a best practice to have React be the source of truth for all state data. Therefore, we want to somehow tie the DOM data from user input HTML elements such as `<input>` into the React component state. When we do this, we are creating a Controlled Component.
 
 Here's the basic code for creating a Controlled Component.
 
@@ -355,7 +355,7 @@ function App(){
             <textarea name = "description" value = {val.description} onChange={handleChange} />
 
             <h1>Going?</h1>
-            <input name = "isGoing" type="checkbox" value = {val.isGoing} onChange={handleChange} />
+            <input name = "isGoing" type="checkbox" checked = {val.isGoing} onChange={handleChange} />
         </div>
 
     )
@@ -369,7 +369,7 @@ What did we do here?
     * input
     * textarea
     * checkbox
-2. We changed the state value to be an object with three properties to represent the three different input state values. We also added some default values.
+2. We changed the state value to be an object with three properties to represent the three different input state values. We also added some empty default values.
 3. We modified the `value` attribute on each of the input elements to only take the state property that represented its input state.
 4. We added a `name` attribute to each of the input elements that is the same as the property name on the state object for that input element. This allows us to pass a `name` in the `onChange` event handler and use it to assign the appropriate property on the state object.
 
@@ -395,8 +395,8 @@ import React, {useState} from 'react'
 
 function App(){
     const [val,setVal] = useState({
-      full_name:"default name",
-      description:"default description",
+      full_name:"",
+      description:"",
       isGoing:false
     })
     const handleChange = (e) => {
@@ -423,9 +423,10 @@ function App(){
             <textarea name = "description" value = {val.description} onChange={handleChange} />
 
             <h1>Going?</h1>
-            <input name = "isGoing" type="checkbox" value = {val.isGoing} onChange={handleChange} />
-
-            <button onClick={handleClick}>Submit</button>
+            <input name = "isGoing" type="checkbox" checked = {val.isGoing} onChange={handleChange} />
+            <div>
+                <button onClick={handleClick}>Submit</button>
+            </div>
         </div>
 
     )
@@ -436,7 +437,81 @@ export default App
 ```
 For now, we just added the button and made the click event handler send an alert() with the form data information.
 
-Now lets add the current form data information to a list, and then render the list information using the Table component we made earlier. 
+Now lets add the current form data information to a list, and then render the list information using the Table component we made earlier. We also, will wipe the form data back to empty defaults after each form submit.
+
+```jsx
+//App.js
+import React, {useState} from 'react'
+import Table from './Table.js'
+
+function App(){
+    const [peopleList,setPeopleList] = useState([])
+    const [val,setVal] = useState({
+      full_name:"",
+      description:"",
+      isGoing:false
+    })
+    const handleChange = (e) => {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        
+        let temp = {...val}
+        temp[name] = value
+        console.log(temp)
+
+        setVal(temp)
+        
+    }
+
+    const handleClick = (e) => {
+        console.log(peopleList)
+        setPeopleList([...peopleList,val])
+        setVal({
+            full_name:"",
+            description:"",
+            isGoing:false
+        })
+    }
+    return (
+        <div>
+            <h1>Full Name</h1>
+              <input name = "full_name" value= {val.full_name} onChange={handleChange} />
+
+              <h1>Description</h1>
+              <textarea name = "description" value = {val.description} onChange={handleChange} />
+
+              <h1>Going?</h1>
+              <input name = "isGoing" type="checkbox" checked = {val.isGoing} onChange={handleChange} />
+              <div>
+                <button onClick={handleClick}>Submit</button>
+              </div>
+              <Table people={peopleList}/>
+        </div>
+
+    )
+}
+
+export default App
+
+```
+In the above example, we added the following things:
+1. Imported Table.js
+2. Added a state variable for holding our list of people named peopleList
+    1. Set the default state for peopleList to be an empty array
+    2. Created, setPeopleList() which can be used to change the state of peopleList
+3. edited handleClick so that it appends the input form state value onto the end of peopleList and saves that new value with setPeopleList()
+4. Rendered a Table component at the bottom and passed peopleList as a `props`
+
+
+Now if we go to localhost:3000 and press the Submit button, a new row with the current form data gets added to our table!
+
+### Removing Items from a List
+
+A common use case is deleting items from a list. Lets edit our code to implement this feature:
+
+
+In App.js, create an event handler called `deletePerson()` that will delete a specific index from the peopleList state array. Then pass it down as props to Table:
 
 ```jsx
 //App.js
@@ -465,6 +540,15 @@ function App(){
     const handleClick = (e) => {
         console.log(peopleList)
         setPeopleList([...peopleList,val])
+        setVal({
+            full_name:"",
+            description:"",
+            isGoing:false
+        })
+    }
+
+    const deletePerson = (index) => {
+        setPeopleList([...peopleList.slice(0,index),...peopleList.slice(index + 1,peopleList.length)])
     }
     return (
         <div>
@@ -475,10 +559,11 @@ function App(){
               <textarea name = "description" value = {val.description} onChange={handleChange} />
 
               <h1>Going?</h1>
-              <input name = "isGoing" type="checkbox" value = {val.isGoing} onChange={handleChange} />
-
-              <button onClick={handleClick}>Submit</button>
-              <Table people={peopleList}/>
+              <input name = "isGoing" type="checkbox" checked = {val.isGoing} onChange={handleChange} />
+              <div>
+                <button onClick={handleClick}>Submit</button>
+              </div>
+              <Table deletePerson={deletePerson} people={peopleList}/>
         </div>
 
     )
@@ -487,17 +572,258 @@ function App(){
 export default App
 
 ```
-In the above example, we added the following things:
-1. Imported Table.js
-2. Added a state variable for holding our list of people named peopleList
-    1. Set the default state for peopleList to be an empty array
-    2. Created, setPeopleList() which can be used to change the state of peopleList
-3. edited handleChange so that it appends the input form state value onto the end of peopleList and saves that new value with setPeopleList()
-4. Rendered a Table component at the bottom and passed peopleList as a `props`
 
-### Removing Items from a List
+Next, edit TableHeader to have a Delete column:
+
+```js
+//TableHeader.js
+import React from 'react'
+
+function TableHeader(){
+    return (
+        <tr>
+            <th>Full Name</th>
+            <th>Description</th>
+            <th>Going?</th>
+            <th>Delete</th>
+        </tr>
+    )
+}
+export default TableHeader
+
+```
+Next, edit Table so that it passes down the deletePerson method it received as props down again to each TableBody. Also pass the index of each TableBody down as props.
+
+```jsx
+
+//Table.js
+import React from 'react'
+import TableHeader from './TableHeader.js'
+import TableBody from './TableBody.js'
+
+function Table(props){
+    return (
+        <table border={"1px solid black"}>
+            <TableHeader/>
+            {
+                props.people.map( (person,i) => <TableBody id={i} deletePerson={props.deletePerson} {...person}/>)
+            }
+        </table>
+    )
+}
+export default Table
+```
+
+Lastly, edit TableBody to have a new column with a Delete Button, then create a new event handler named handleClick() and attach it to the onClick attribute of the Delete Button you just created. Lastly, within handleClick, call the deletePerson() method that was passed down as props and pass in the TableBody id that was also passed as props.
+
+
+```jsx
+//TableBody.js
+import React from 'react'
+
+function TableBody(props){
+    const handleClick = () => {
+        props.deletePerson(props.id)
+    }
+    return (
+        <tr>
+            <td>{props.full_name}</td>
+            <td>{props.description}</td>
+            <td>{props.isGoing? "yes" : "no"}</td>
+            <td><button onClick={handleClick}>Delete</button></td>
+        </tr>
+    )
+}
+export default TableBody
+```
+
+Here's a summary of what we did:
+1. Create a event handler called deletePerson() in App.js
+    1. Also pass down the deletePerson() event handler as props to Table
+2. Edit TableHeader to have a Delete column
+3. Edit Table so that it passes id props to each TableBody
+    1. Pass the deletePerson() event handler that was passed down as props again as props to each TableBody
+4. Edit TableBody to have a new column with a Delete Button, then create a new event handler named handleClick() and attach it to the onClick attribute of the Delete Button you just created. Lastly, within handleClick, call the deletePerson() method that was passed down as props and pass in the TableBody id that was also passed as props.
+
+If we go to localhost:3000, we can now see a Delete Button in each row of the table. Clicking on the Delete button then removes the row item from the table.
+
 
 ### Styling it up
 
+Our input form and table display doesn't look the greatest style-wise.
+
+Lets add some styling to make it look better.
+
+Lets define some styling in App.css:
+
+```css
+
+.App {
+  margin: 20px;
+}
+
+.Input {
+  width:200px;
+  height:40px;
+}
+
+.TextArea {
+  width:400px;
+  height:80px;
+}
+
+.Checkbox {
+  width: 40px;
+  height:400px
+}
+
+.Button {
+  margin-top:20px;
+  margin-bottom:20px;
+  width: 80px;
+  height:30px
+}
+
+```
+
+Next, lets apply the CSS into our App.js file:
+
+```jsx
+//App.js
+import React, {useState} from 'react'
+import Table from './Table.js'
+import './App.css'
+
+function App(){
+    const [peopleList,setPeopleList] = useState([])
+    const [val,setVal] = useState({
+      full_name:"",
+      description:"",
+      isGoing:false
+    })
+    const handleChange = (e) => {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        
+        let temp = {...val}
+        temp[name] = value
+        console.log(temp)
+
+        setVal(temp)
+    }
+
+    const handleClick = (e) => {
+        console.log(peopleList)
+        setPeopleList([...peopleList,val])
+        setVal({
+          full_name:"",
+          description:"",
+          isGoing:false
+        })
+    }
+
+    const deletePerson = (index) => {
+        setPeopleList([...peopleList.slice(0,index),...peopleList.slice(index + 1,peopleList.length)])
+    }
+
+
+    return (
+        <div className="App">
+              <h1>Full Name</h1>
+              <input className="Input" name = "full_name" value= {val.full_name} onChange={handleChange} />
+
+              <h1>Description</h1>
+              <textarea className="TextArea" name = "description" value = {val.description} onChange={handleChange} />
+
+              <h1>Going?</h1>
+              <input className="CheckBox" name = "isGoing" type="checkbox" checked = {val.isGoing} onChange={handleChange} />
+
+              <div>
+                <button className="Button" onClick={handleClick}>Submit</button>
+              </div>
+              <Table deletePerson={deletePerson} people={peopleList}/>
+        </div>
+
+    )
+}
+
+export default App
+
+```
+You'll notice that we imported `App.css` at the top and also added classNames to several of our components.
+
+Now if we look at localhost:3000, our form look somewhat more stylish.
 
 ## Composition
+
+The form and table display that we just created would be a good candidate for a stand alone React component. It has one primary focus and it would handle its own state.
+
+
+
+When we create larger web apps, the concept of Composition becomes increasingly important. Composition is when we group together smaller components to make a larger React component that represents a bigger piece of the UI. We have to be careful that we are grouping react components in a way that makes sense though.
+
+![composition](./images/composition.png)
+
+For a web app like the example shown above, ideally we would want a App.js file to look something like this:
+
+```jsx
+import React from 'react'
+import LeftNav from '...'
+import CenterContent from '...'
+import RightDetails from '...'
+import Footer from '...'
+
+
+function App(){
+    return (
+        <div>   
+            <div>
+                <NavBar/>
+            </div>
+            <div>
+                <LeftNav/>
+                <CenterContent/>
+                <RightDetails/>
+            </div>
+            <div>
+                <Footer/>
+            </div>
+        </div>
+    )
+}
+export default App
+```
+
+This way, we can see the overall structure of the web app all from App.js at a glance. If we deicde that we want to edit one of the inner components, such as LeftNav, we could go to its own component file.
+
+LeftNav.js:
+
+```jsx
+import React from 'react'
+import Account from '...'
+import Notifications from '...'
+import Billing from '...'
+import Logout from '...'
+
+
+function LeftNav(){
+    return (
+        <div>   
+            <Account/>
+            <Notifications/>
+            <Settings/>
+            <Billing/>
+            <Logout/>
+        </div>
+    )
+}
+export default LeftNav
+
+```
+
+This is just a theoretical example, but you can already see how LeftNav itself is composed of many smaller components. And any of those smaller components could in turn be composed of even smaller components until you get down to standard HTML elements.
+
+
+**Best Practice:** Before you even start coding, it is important to think about the overall composition of your web app, so you can go about creating react components thoughtfully.
+
