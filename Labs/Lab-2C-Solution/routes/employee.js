@@ -1,5 +1,4 @@
 const express = require('express')
-const json = require('../public/employee_data.json')
 const Employee = require('../models/employee.js')
 const jwtAuth = require('../middleware/jwtAuth.js')
 
