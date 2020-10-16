@@ -30,7 +30,7 @@ Here's a high level overview of the CI/CD phases:
     2. Integration tests, load tests, and other tests are run
     3. If tests are successful, the builds can be deployed to production after a manual approval. Otherwise, a report of what went wrong will be sent out. 
 3. Continuous Deployment Phases
-    1. In Continuous Ceployment, builds are automatically deployed to Production after passing tests in the staging environment
+    1. In Continuous Deployment, builds are automatically deployed to Production after passing tests in the staging environment
 
 
 ## Continuous Integration 
