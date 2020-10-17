@@ -540,6 +540,13 @@ A. The Mystery is solved
 B. Unsolved Mystery
 ```
 
+# Unit 4-B Lab
+
+## Lab Overview
+
+## Lab Starter Code
+
+## Lab Solution
 
 # Knowledge Check Answers
 

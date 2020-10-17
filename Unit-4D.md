@@ -2,8 +2,8 @@
 
 In this lecture we will cover:
 * Material UI
-* Material UI Grid System
 * React Router
+* Combining React and Node.js
 
 It is recommended to follow along by making a project directory for this lecture and running the code samples:
 
@@ -1125,6 +1125,14 @@ npx create-react-app client
 fetch("/api/ping")
 ```
 
+
+# Unit 4-D Lab
+
+## Lab Overview
+
+## Lab Starter Code
+
+## Lab Solution
 
 
 # Knowledge Check Answers

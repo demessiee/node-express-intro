@@ -1173,6 +1173,15 @@ By selecting one of the components in the tree, you can inspect and edit its cur
 You can read more about the experimental Profiler tool here:
 https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html
 
+
+# Unit 4-A Lab
+
+## Lab Overview
+
+## Lab Starter Code
+
+## Lab Solution
+
 # Knowledge Check Answers
 
 ## Knowledge Check 1

@@ -19,7 +19,7 @@
                 *   Arrow Functions
             *   Require and Export
         *   Lab (1 hr 30 min)
-            *   Students will set up a local Node.js development environment and create a couple utility functions which they will import into a test file
+            *   The student will set up a local Node.js development environment and create a couple utility functions which they will import into a test file
     *   [Unit 1B (2 hours): Core Node Modules](Unit-1B.md) **_(Brad)_**
         *   Lecture (30 min)
             *   Core Node Modules
@@ -87,7 +87,7 @@
             * Testing Async Code with Jest
             * Setup and Teardown before Testing with Jest
         *   Lab (1 hr 30 min)
-            *   User will write test cases to verify the the functionality of several utility functions using Jest
+            *   The student will write test cases to verify the the functionality of several utility functions using Jest
     *   [Unit 3B (2 hours): Circle CI](Unit-3B.md) **_(Brad)_**
         *   Lecture (30 min)
             * Continuous Integration
@@ -100,5 +100,5 @@
         *   Project Overview (30 min)
             *   Review what we learned so far and go over project details
         *   Project Time(3 hours and 30 min)
-            *   Student will be given requirements to build an API, define MongoDB schemas, create authentication and authorization middlewares, and create unit tests with Jest.
+            *   The student will be given requirements to build an API, define MongoDB schemas, create authentication and authorization middlewares, and create unit tests with Jest.
 
