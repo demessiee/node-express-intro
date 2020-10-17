@@ -53,16 +53,16 @@
         *   Lab (1 hr 30 min)
             *   The student will set up a few GET endpoints that serve text, JSON, and static assets using Node.js and Express
 *   Day 2 (8 hours)
-    *   [Unit 2A (2.5 hours): More about Basic Web APIs with Node.js and Express ](Unit-2A.md)
+    *   [Unit 2A (2 hours): More about Basic Web APIs with Node.js and Express ](Unit-2A.md)
         *   Lecture (30 min)
             *   POST, PUT, and DELETE Requests
             *   Querystrings
             *   Middleware
             *   CORS
             *   Modularizing Routes
-        *   Lab (2 hrs)
+        *   Lab (1 hr 30 min)
             *   The student will create a CRUD Web API that writes to a json file for memory instead of a database
-    *   [Unit 2B (2.5 hours): Integrating with a Database](Unit-2B.md) 
+    *   [Unit 2B (2 hours): Integrating with a Database](Unit-2B.md) 
         *   Lecture (30 min)
             * MongoDB
             * Mongo Shell
@@ -70,7 +70,7 @@
             * Defining database schemas with Mongoose
             * Writing data to MongoDB
             * Reading data from MongoDB
-        *   Lab (2 hrs)
+        *   Lab (1 hr 30 min)
             *   The student will transition their CRUD Web API to write to a MongoDB database instead of a json file
     *   [Unit 4A (2 hours): React Basics](Unit-4A.md) 
         *   Lecture (30 min)
@@ -85,7 +85,7 @@
             * Passing props to React components
             * React Dev Tools
         *   Lab (1 hr 30 min)
-            *   
+            * The student will create several React components and combine them together to layout a basic web page.
     *   [Unit 4A (2 hours): ](Unit-4B.md) 
         *   Lecture (30 min)
             * State 
@@ -95,7 +95,7 @@
             * Fetching Data
             * Conditional Rendering
         *   Lab (1 hr 30 min)
-            *   
+            *  The student will create an interactive React component that changes state in response to user click events.
     *   [Unit 4C (2 hours): ](Unit-4C.md) 
         *   Lecture (30 min)
             * Lists and Keys
@@ -103,16 +103,16 @@
             * Forms
             * Composition
         *   Lab (1 hr 30 min)
-            *   
+            *  The student will create a React frontend that allows users to interact with the CRUD API from Lab 2B
     *   [Unit 4D (2 hours): ](Unit-4D.md) 
         *   Lecture (30 min)
             * Material UI
             * React Router
             * Combining React and Node.js
         *   Lab (1 hr 30 min)
-            *   
+            * The student will make a multi-page React application using React Router and components from Material UI
     *   [Final Project ( 4 hours)](Unit-Final-Node-Express-React.md) 
         *   Project Overview (30 min)
             *   Review what we learned so far and go over project details
         *   Project Time(3 hours and 30 min)
-            *   
+            *   The student will be given requirements to build an API and define MongoDB schemas. The student will then create a frontend to interact with the API they just built.
