@@ -535,7 +535,7 @@ We can then import this route into our index.js file:
 
 ```js
 const express = require('express')
-const items = require('./routes/items.js)
+const items = require('./routes/items.js')
 const app = express()
 const port = 3000
 
