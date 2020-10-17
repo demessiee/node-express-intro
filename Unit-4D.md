@@ -2,8 +2,8 @@
 
 In this lecture we will cover:
 * Material UI
-* Material UI Grid System
 * React Router
+* Combining React and Node.js
 
 It is recommended to follow along by making a project directory for this lecture and running the code samples:
 
