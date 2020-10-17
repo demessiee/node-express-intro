@@ -27,7 +27,7 @@ Here are some benefits of Node.js:
 * Node.js APIs are asynchronous and event-driven, meaning they are non-blocking
 * Lightweight, but still very fast for handling I/O
 
-When should you use not use Node.js:
+When should you not use Node.js:
 * It is not advisable to use Node.js for CPU intensive applications.
 * If you need to use multi-threading
 
@@ -66,7 +66,7 @@ Try running some of the following expressions:
 $ node
 > 2 + 2
 4
-> "Hello" + " " + "World"
+> 'Hello' + ' ' + 'World'
 Hello World
 > a = 5;
 5
@@ -97,13 +97,13 @@ touch index.js
 Next, open index.js with your favorite code editor and save the following code into the file:
 
 ```
-console.log("Hello World")
+console.log('Hello, World');
 ```
 
 You can run your index.js file by running:
 ```
 $ node index.js
-Hello World
+Hello, World
 ```
 
 
@@ -152,16 +152,16 @@ D. node /src/myFile.js
 
 ## Review of ES6 JavaScript
 
-ES6 JavaScript is a version of JavaScript that was created in 2015 to enhance JavaScript and add in many modern features that it was missing. Most web browsers all support ES6 JavaScript today.
+ES6 JavaScript is a version of JavaScript that was created in 2015 to enhance JavaScript and add in many modern features that it was missing. Most web browsers support ES6 JavaScript today.
 
 ### Declaring Variables
 
 There are three ways to declare a variable in ES6 JavaScript:
 
 ```js
-let x = 1
-const y = "hello"
-var z = 3
+let x = 1;
+const y = 'hello';
+var z = 3;
 ```
 
 * var - use this for variables that need function-wide scope
@@ -169,7 +169,7 @@ var z = 3
     * can be updated
     * functionally scoped
 * const - use this for variables that stay constant
-    * can not be redeclared, 
+    * can not be redeclared 
     * can not be updated
     * scoped to the nearest block
     * must be initialized upon declaration
@@ -179,47 +179,46 @@ var z = 3
     * scoped to the nearest block
 
 
-**Best Practice:** In general, you should use *let* for declaring your variables that need to be changed and *const* for declaring variables that need to stay constant. I avoid using *var* as it was created back before ES6 JavaScript came out and can lead to mistakes due to its scope being function-wide automatically.
+**Best Practice:** In general, you should use *let* for declaring your variables that need to be changed and *const* for declaring variables that need to stay constant. Avoid using *var* as it was created before ES6 JavaScript and can lead to mistakes due to its scope being function-wide automatically. Additionally, use camelCase to name variables.
 
 
 ### Scope
 
-Scope defines where your variables are accessible. Scope is mainly defined by where your variable is declared, but is also influenced by whether you are using *var*, *let* or *const*
+Scope defines where your variables are accessible. Scope is mainly defined by where your variable is declared but is also influenced by whether you are using *var*, *let*, or *const*.
 
 Scope allows us to ensure that variables aren't accessible too far out of their initial context and allows us to reuse common variable names when they exist in separate scopes.
 
 #### Global Scope
 
-Global scope is when your variable is accessible throughout your entire file. When you open up an empty file, you are already in the global scope. If you declare a variable in the file outside of any functions or curly brace blocks, they will be globally scoped. This is true whether you use *var*, *let* or *const*.
+Global scope is when your variable is accessible throughout your entire file. When you open up an empty file, you are already in the global scope. If you declare a variable in the file outside of any functions or curly brace blocks, they will be globally scoped. This is true whether you use *var*, *let*, or *const*. It is best practice to avoid using globally scoped variables.
 
 
 ```js
-let foo = "hello"
+let foo = 'hello';
 
-function bar(){
-    console.log(foo) //globally scoped variable 'foo' is accessible here as well as anywhere else on the page
+function bar() {
+  console.log(foo); //globally scoped variable 'foo' is accessible here as well as anywhere else on the page
 }
 ```
 
 #### Lexical Scope
 
-Lexical scope is when inner functions have access to variables declared in outer functions. This is true whether you use *var*, *let* or *const*.
+Lexical scope is when inner functions have access to variables declared in outer functions. This is true whether you use *var*, *let*, or *const*.
 
 
 ```js
 
-function bar(){
-    let foo = "hello"
-    function baz(){
-        console.log(foo) //foo is accessible here 
-
-        function qux(){
-            console.log(foo) //foo is also accessible here
-        }
+function bar() {
+  let foo = 'hello';
+  function baz() {
+    console.log(foo); //foo is accessible here
+    function qux() {
+      console.log(foo); //foo is also accessible here
     }
+  }
 }
 
-console.log(foo) // foo is NOT accessible here
+console.log(foo); // foo is NOT accessible here
 ```
 
 #### Block Scope
@@ -229,24 +228,21 @@ Block Scope is when scope is accessible throughout the block that the variable i
 
 ```js
 
-function bar(){
-    
-
-    for(let i = 0; i <10; i++){
-        console.log(i) //i is accessible anywhere within this for loop
-        if(i === 5){
-            console.log(i) //i is still accessible here
-            let flag = true
-        }
-        console.log(flag) //flag is not accessible here since it is outside of the if statement block
+function bar() {
+  for (let i = 0; i < 10; i++) {
+    console.log(i); //i is accessible anywhere within this for loop
+    if (i === 5) {
+      console.log(i); //i is still accessible here
+      let flag = true;
     }
-    console.log(i)//i is NOT accessible here as it is outside of the initial declaration block
+    console.log(flag); //flag is not accessible here since it is outside of the if statement block
+  }
+  console.log(i); //i is NOT accessible here as it is outside of the initial declaration block
 
-    for(var j = 0; j <10; j++){
-        console.log(j) //j is accessible anywhere within the bar function since it was declared with var
-        
-    }
-    console.log(j)//j is accesssible here since it was declared with var
+  for (var j = 0; j < 10; j++) {
+    console.log(j); //j is accessible anywhere within the bar function since it was declared with var
+  }
+  console.log(j); //j is accesssible here since it was declared with var
 }
 
 ```
@@ -297,16 +293,12 @@ ES6 JavaScript has 6 data types:
 Here is the basic syntax for if statements in JavaScript.
 
 ```js
-if(x < 10){
-  console.log("x is greater than 10")
-
-}
-else if(x > 10){
-  console.log("x is less than 10")
-
-}
-else{
-  console.log("x is exactly 10")
+if (x < 10) {
+  console.log('x is greater than 10');
+} else if (x > 10) {
+  console.log('x is less than 10');
+} else {
+  console.log('x is exactly 10');
 }
 ```
 
@@ -316,7 +308,7 @@ else{
 Here is the basic syntax for switch statements in JavaScript.
 
 ```js
-switch(x) { //can switch on any expression
+switch (x){ //can switch on any expression
   case 1: //can be a number or string
     // code block
     break; //break exits out of the switch case
@@ -324,7 +316,7 @@ switch(x) { //can switch on any expression
     // code block
     break;
   default:
-    // default code block if none of the cases are met
+  // default code block if none of the cases are met
 }
 ```
 
@@ -333,8 +325,8 @@ switch(x) { //can switch on any expression
 Here is the basic syntax for a for loop in JavaScript
 
 ```js
-for(let i = 0; i < 10; i++){
-    //do something
+for (let i = 0; i < 10; i++) {
+  //do something
 }
 
 ```
@@ -344,10 +336,10 @@ for(let i = 0; i < 10; i++){
 Here is the basic syntax for a while loop in JavaScript
 
 ```js
-let i = 0
-while(i < 10){
-    //do something
-    i++
+let i = 0;
+while (i < 10) {
+  //do something
+  i++;
 }
 
 ```
@@ -358,64 +350,68 @@ while(i < 10){
 
 ##### Creating an Array
 ```js
-let arr = [1,2,3,4,5]
-let statesArr = ["CA","NY","WA"]
+let arr = [1, 2, 3, 4, 5];
+let statesArr = ['CA', 'NY', 'WA'];
+
 ```
 
 ##### Accessing an array index
 ```js
-let arr = [1,2,3,4,5]
-console.log(arr[0])
+let arr = [1, 2, 3, 4, 5];
+console.log(arr[0]);
 //prints 1
+
 ```
 
 ##### Updating an array index
 ```js
-let arr = [1,2,3,4,5]
-arr[0] = 42
-console.log(arr[0])
+let arr = [1, 2, 3, 4, 5];
+arr[0] = 42;
+console.log(arr[0]);
 //prints 42
 ```
 
 ##### Getting the length of an array
 
 ```js
-let arr = [1,2,3,4,5]
-console.log(arr.length)
+let arr = [1, 2, 3, 4, 5];
+console.log(arr.length);
 //prints 5
 ```
 
 ##### Adding to the end of an array
 ```js
-let arr = [1,2,3,4,5]
-console.log(arr.length)
+let arr = [1, 2, 3, 4, 5];
+console.log(arr.length);
 //prints 5
-arr.push(42)
-console.log(arr.length)
+arr.push(42);
+console.log(arr.length);
 //prints 6
+
 ```
 
 ##### Slicing part of an array
 ```js
-let arr = [1,2,3,4,5]
-let slicedArr = arr.slice(0,3) //slices from 0 index to 3rd index, non inclusive
-console.log(slicedArr)
+let arr = [1, 2, 3, 4, 5];
+let slicedArr = arr.slice(0, 3); //slices from 0 index to 3rd index, non inclusive
+console.log(slicedArr);
 //prints(0,1,2)
+
 ```
 
 ##### Looping through an array with forEach()
 
 ```js
-let arr = [1,2,3,4,5]
-arr.forEach( (x,i) => {
-    console.log("value: "+ x,"index: " + i)
-})
+let arr = [1, 2, 3, 4, 5];
+arr.forEach((x, i) => {
+  console.log('value: ' + x, 'index: ' + i);
+});
 //prints
-//value: 1, index: 0 
+//value: 1, index: 0
 //value: 2, index: 1
-//value: 3, index: 2 
-//value: 4, index: 3 
-//value: 5, index: 4 
+//value: 3, index: 2
+//value: 4, index: 3
+//value: 5, index: 4
 
 ```
 
@@ -426,84 +422,92 @@ arr.forEach( (x,i) => {
 ##### Creating an Object
 
 ```js
-let obj = {name:"bob", age:42}
+let obj = { name: 'bob', age: 42 };
+
 ```
 
 
 ##### Accessing an Object property value
 
 ```js
-let obj = {name:"bob", age:42}
-console.log(obj.name)
+let obj = { name: 'bob', age: 42 };
+console.log(obj.name);
 //prints bob
-console.log(obj["name"]) //alternative
+console.log(obj['name']); //alternative
 //prints bob
-console.log(obj.age)
+console.log(obj.age);
 //prints 42
+
 ```
 
-**Additional Context**: obj["key"] syntax is useful if you want to use a variable as a key name
+**Additional Context**: obj['key'] syntax is useful if you want to use a variable as a key name
 
 ```js
-let obj = {name:"bob", age:42}
+let obj = { name: 'bob', age: 42 };
 
-let keyName = "bob"
-console.log(obj[keyName])
+let keyName = 'bob';
+console.log(obj[keyName]);
 //prints bob
+
 ```
 
 ##### Edting an Object property value
 
 ```js
-let obj = {name:"bob", age:42}
+let obj = { name: 'bob', age: 42 };
 
-obj.name = "sally"
-console.log(obj.name)
+obj.name = 'sally';
+console.log(obj.name);
 //prints sally
-obj.age = 99
-console.log(obj.age)
+obj.age = 99;
+console.log(obj.age);
 //prints 99
+
 ```
 
 
 ##### Getting a list of object keys
 
 ```js
-let obj = {name:"bob", age:42}
-let keys = Object.keys(obj)
-console.log(keys)
+let obj = { name: 'bob', age: 42 };
+let keys = Object.keys(obj);
+console.log(keys);
 //prints [name,age]
+
 ```
 
 ##### Getting a list of object values
 
 ```js
-let obj = {name:"bob", age:42}
-let values = Object.values(obj)
-console.log(values)
+let obj = { name: 'bob', age: 42 };
+let values = Object.values(obj);
+console.log(values);
 //prints [bob,42]
+
 ```
 
 
 ##### Getting a list of object key-value pairs
 
 ```js
-let obj = {name:"bob", age:42}
-let entries = Object.entries(obj)
-console.log(entries)
-//prints [["name","bob],["age",42]]
+let obj = { name: 'bob', age: 42 };
+let entries = Object.entries(obj);
+console.log(entries);
+//prints [['name','bob],['age',42]]
+
 ```
 
 ##### To loop through all properties values of an object
 
 ```js
-let obj = {name:"bob", age:42}
-for (let x in obj){
-    console.log(x)
+let obj = { name: 'bob', age: 42 };
+for (let x in obj) {
+  console.log(x);
 }
-//prints 
+//prints
 //bob
 //42
+
 ```
 
 **Warning**: Don't use this for arrays, its not guaranteed that the array values will come out in the right order
@@ -514,9 +518,9 @@ for (let x in obj){
 To declare a function in JavaScript:
 
 ```js
-function add(x,y){
-    let result = x + y
-    return result
+function add(x, y) {
+  let result = x + y;
+  return result;
 }
 
 ```
@@ -525,22 +529,24 @@ To declare a function in JavaScript using ES6 arrow functions:
 
 ```js
 
-const add = (x,y) => {
-    let result = x + y
-    return result
-}
+const add = (x, y) => {
+  let result = x + y;
+  return result;
+};
 
-console.log(add(2,3))
+console.log(add(2, 3));
 //prints 5
+
 ```
 **Warning**: Forgetting the `return` statement is a common mistake developers make.
 
 You can omit the curly braces and return statement if you can fit the return value into a single expression. The single expression will end up being what is returned. 
 ```js
-const add = (x,y) => x + y
+const add = (x, y) => x + y;
 
-console.log(add(2,3))
+console.log(add(2, 3));
 //prints 5
+
 
 ```
 
@@ -554,45 +560,49 @@ console.log(add(2,3))
 The map() function creates a new array with all of the old arrays values transformed by a mapping function.
 
 ```js
-let arr = [1,2,3,4,5]
-let newArr = arr.map(x => x * 2) //uses an arrow function
-console.log(newArr)
+let arr = [1, 2, 3, 4, 5];
+let newArr = arr.map((x) => x * 2); //uses an arrow function
+console.log(newArr);
 //prints [2,4,6,8,10]
 
-
 let items = [
-    {id:1,price:10,tax:.20},
-    {id:2,price:20,tax:.10},
-    {id:3,price:30,tax:.05},
-]
+  { id: 1, price: 10, tax: 0.2 },
+  { id: 2, price: 20, tax: 0.1 },
+  { id: 3, price: 30, tax: 0.05 },
+];
+
 ```
 
 Another example of the map() function
 ```js
-let finalCosts = items.map(x => {id:x.id, finalCost: price * (1+tax))}
-console.log(finalCosts)
+let finalCosts = items.map((x) => {
+  const rObj = {};
+  rObj.id = x.id;
+  rObj.finalCosts = x.price * (1 + x.tax);
+  return rObj;
+});
+console.log(finalCosts);
 /*
 [
-    {id:1,finalCost:12},
-    {id:2,finalCost:22},
-    {id:3,finalCost:31.5},
+  {id:1,finalCost:12},
+  {id:2,finalCost:22},
+  {id:3,finalCost:31.5}
 ]
-
 */
 ```
 
 You can also access the index while mapping through each element:
 
 ```js
-let items = [1,2,3,4]
-let mappedItems = items.map((x,i) => [{value:x,index:i}]
-console.log(finalCosts)
+let items = [1, 2, 3, 4];
+let mappedItems = items.map((x, i) => [{ value: x, index: i }]);
+console.log(mappedItems);
 /*
 [
-    {value:1,index:0},
-    {value:2,index:1},
-    {value:3,index:2},
-    {value:4,index:3}
+  [ { value: 1, index: 0 } ],
+  [ { value: 2, index: 1 } ],
+  [ { value: 3, index: 2 } ],
+  [ { value: 4, index: 3 } ]
 ]
 */
 ```
@@ -600,20 +610,22 @@ console.log(finalCosts)
 **Additional Context**: The map() function is used heavily in React to convert arrays full of data into arrays full of React components in order to render lists of React components.
 
 ```js
-function ItemsList = () => {
-    let items = [
-        {id:1,price:10,tax:.20},
-        {id:2,price:20,tax:.10},
-        {id:3,price:30,tax:.05},
-    ]
-    return (
+const ItemsList = () => {
+  let items = [
+    { id: 1, price: 10, tax: 0.2 },
+    { id: 2, price: 20, tax: 0.1 },
+    { id: 3, price: 30, tax: 0.05 },
+  ];
+  return (
     <div>
-    {
-        items.map( x => <Item id={x.id} price={x.price} tax={x.tax} />) //This will render a list of React components
-    }
+      {
+        items.map((x) => (
+          <Item id={x.id} price={x.price} tax={x.tax} />
+        )) //This will render a list of React components
+      }
     </div>
-    )
-}
+  );
+};
 
 ```
 
@@ -622,31 +634,30 @@ function ItemsList = () => {
 The filter() function creates a new array with only the values of the old array that return true from the filtering function.
 
 ```js
-let arr = [1,2,3,4,5]
-let newArr = arr.filter(x => x > 2) //uses an arrow function
-console.log(newArr)
-//prints [3,4,5]
+let arr = [1, 2, 3, 4, 5];
+let newArr = arr.filter((x) => x > 2); //uses an arrow function
+console.log(newArr);
+//prints [ 3, 4, 5 ]
 
-
-let arr = [
-    {id:1,isActive:true},
-    {id:2,isActive:false},
-    {id:3,isActive:true},
-    {id:4,isActive:false},
-    {id:5,isActive:false},
-]
 ```
 
 
 Another example of the filter() function
 ```js
-let newArr = arr.filter(x => x.isActive === false) //uses an arrow function
-console.log(newArr)
+let arr = [
+  { id: 1, isActive: true },
+  { id: 2, isActive: false },
+  { id: 3, isActive: true },
+  { id: 4, isActive: false },
+  { id: 5, isActive: false },
+];
+let newArr = arr.filter((x) => x.isActive === false); //uses an arrow function
+console.log(newArr);
 /*prints 
 [
-    {id:2,isActive:false},
-    {id:4,isActive:false},
-    {id:5,isActive:false}
+  { id: 2, isActive: false },
+  { id: 4, isActive: false },
+  { id: 5, isActive: false }
 ]
 */
 ```
@@ -658,13 +669,13 @@ The sort() function creates a new array by sorting the values of the old array u
 The sorting function will have the format of:
 
 ```js
-function(x,y){
+function(x, y) {
 
 }
 
 //or in arrow format
 
-(x,y) => {
+(x, y) => {
 
 }
 ```
@@ -674,22 +685,22 @@ The sorting function works by comparing two items in the array at a time, repres
 Sorting numerically by a specific attribute:
 ```js
 let arr = [
-    {id:304,code:"aaa"},
-    {id:222,code:"ddd"},
-    {id:9,code:"eee"},
-    {id:100,code:"bbb"},
-    {id:42,code:"ccc"},
-]
+  { id: 304, code: 'aaa' },
+  { id: 222, code: 'ddd' },
+  { id: 9, code: 'eee' },
+  { id: 100, code: 'bbb' },
+  { id: 42, code: 'ccc' },
+];
 
-let sortedArr = arr.sort( (x,y) => x.id - y.id) //if x.id is greater than y.id, the result will be positive and thus x will be slotted ahead of y
-console.log(sortedArr)
+let sortedArr = arr.sort((x, y) => x.id - y.id); //if x.id is greater than y.id, the result will be positive and thus x will be slotted ahead of y
+console.log(sortedArr);
 /* prints
 [
-    {id:9,code:"eee"},
-    {id:42,code:"ccc"},
-    {id:100,code:"bbb"},
-    {id:222,code:"ddd"},
-    {id:304,code:"aaa"}
+  { id: 9, code: 'eee' },
+  { id: 42, code: 'ccc' },
+  { id: 100, code: 'bbb' },
+  { id: 222, code: 'ddd' },
+  { id: 304, code: 'aaa' }
 ]
 */
 ```
@@ -697,22 +708,22 @@ console.log(sortedArr)
 Sorting alphabetically by a specific attribute:
 ```js
 let arr = [
-    {id:304,code:"aaa"},
-    {id:222,code:"ddd"},
-    {id:9,code:"eee"},
-    {id:100,code:"bbb"},
-    {id:42,code:"ccc"},
-]
+  { id: 304, code: 'aaa' },
+  { id: 222, code: 'ddd' },
+  { id: 9, code: 'eee' },
+  { id: 100, code: 'bbb' },
+  { id: 42, code: 'ccc' },
+];
 
-let sortedArr = arr.sort( (x,y) => x.code.localeCompare(y.code)) //localeCompare will return a positive number if x.code is ahead of y.code alphabetically
-console.log(sortedArr)
+let sortedArr = arr.sort((x, y) => x.code.localeCompare(y.code)); //localeCompare will return a positive number if x.code is ahead of y.code alphabetically
+console.log(sortedArr);
 /* prints
 [
-    {id:304,code:"aaa"},
-    {id:100,code:"bbb"},
-    {id:42,code:"ccc"},
-    {id:222,code:"ddd"},
-    {id:9,code:"eee"}
+  { id: 304, code: 'aaa' },
+  { id: 100, code: 'bbb' },
+  { id: 42, code: 'ccc' },
+  { id: 222, code: 'ddd' },
+  { id: 9, code: 'eee' }
 ]
 */
 
@@ -721,8 +732,8 @@ console.log(sortedArr)
 
 
 ```js
-let arr = [3,5,12,9].map(x => x*3).filter( x => x > 10)
-console.log(arr)
+let arr = [3, 5, 12, 9].map((x) => x * 3).filter((x) => x > 10);
+console.log(arr);
 ```
 What does arr contain?
 
@@ -744,19 +755,19 @@ The destructuring assignment allows you to unpack values from arrays and objects
 Destructuring an array:
 
 ```js
-let arr = [1,2,3,4,5]
-let [a,b,c] = arr //index values from arr go into a,b,c from left to right
+let arr = [1, 2, 3, 4, 5];
+let [a, b, c] = arr; //index values from arr go into a,b,c from left to right
 
-console.log(a)
+console.log(a);
 //prints 1
-console.log(b)
+console.log(b);
 //prints 2
-console.log(c)
+console.log(c);
 //prints 3
 
 ```
 
-It is okay to provide less variables than the size of the array. The unmatched values just won't be stored in any variables.
+It is okay to provide fewer variables than the size of the array. The unmatched values just won't be stored in any variables.
 
 **Additional Context**: Array destructuring is useful when dealing with the key value pairs of `Object.entries()` in for loops and for some React hooks.
 
@@ -768,36 +779,34 @@ Destructuring an array:
 
 ```js
 let obj = {
-    name:"bob",
-    age:42,
-    location:"LA"
-}
-let {name,age} = obj //property values from obj go into name and age. 
+  name: 'bob',
+  age: 42,
+  location: 'LA',
+};
+let { name, age } = obj; //property values from obj go into name and age.
 
-console.log(name)
+console.log(name);
 //prints bob
-console.log(age)
+console.log(age);
 //prints 42
 
-
 ```
-You don't need to provide all the property values as variable names. You can choose the one's you need and can provide the variables in any order as long as the variable names match up with the property key names.
+You don't need to provide all the property values as variable names. You can choose the ones you need and can provide the variables in any order as long as the variable names match up with the property key names.
 
 If you your variables to have different names than the object key names than you can do the following:
 
 ```js
 let obj = {
-    name:"bob",
-    age:42,
-    location:"LA"
-}
-let {name:newName,age:newAge} = obj //property values from obj go into newName and newAge. 
+  name: 'bob',
+  age: 42,
+  location: 'LA',
+};
+let { name: newName, age: newAge } = obj; //property values from obj go into newName and newAge.
 
-console.log(newName)
+console.log(newName);
 //prints bob
-console.log(newAge)
+console.log(newAge);
 //prints 42
-
 
 ```
 
@@ -806,17 +815,16 @@ console.log(newAge)
 
 ### ES6 Spread Operator
 
-The spread operator is useful for dumping elements in array into another array. It is represented by using three dots in front of an array, for example:
+The spread operator is useful for dumping elements in an array into another array. It is represented by using three dots in front of an array, for example:
 
 #### Spread Operator for Arrays
 ```js
-let arr = [4,5,6]
+let arr = [4, 5, 6];
 
+let newArr = [1, 2, 3, ...arr]; // the elements of arr are being appended onto the newArr declaration
 
-let newArr = [1,2,3,...arr] // the elements of arr are being appended onto the newArr declaration
-
-console.log(newArr)
-//prints 1,2,3,4,5,6
+console.log(newArr);
+//prints [ 1, 2, 3, 4, 5, 6 ]
 
 ```
 
@@ -829,16 +837,14 @@ The spread operator is great for merging object properties of multiple objects:
 
 ```js
 let obj1 = {
-    "a":1,
-    "b":2,
-    "c":3
-}
+  a: 1,
+  b: 2,
+  c: 3,
+};
 
-
-let newObj = {...obj1,b:55,c:66,d:77}
-console.log(newObj)
-//prints {a:1,b:55,c:66,d:77}
-
+let newObj = { ...obj1, b: 55, c: 66, d: 77 };
+console.log(newObj);
+//prints { a: 1, b: 55, c: 66, d: 77 }
 
 ```
 
@@ -850,18 +856,19 @@ console.log(newObj)
 
 ```js
 let obj1 = {
-    "a":1,
-    "b":2,
-    "c":3
-}
+  a: 1,
+  b: 2,
+  c: 3,
+};
 
 let obj2 = {
-    "b":4,
-    "c":5,
-    "e":6
-}
+  b: 4,
+  c: 5,
+  e: 6,
+};
 
-let obj = {...obj2,c:4,...obj1}
+let obj = { ...obj2, c: 4, ...obj1 };
+
 ```
 What value does obj.c contain:
 
@@ -877,30 +884,32 @@ D. 12
 In JavaScript you can build a string with by adding strings together:
 
 ```js
-let x = "hello"
-let y = "world"
+let x = 'hello';
+let y = 'world';
 
-let sentence = x + " " + y
-console.log(sentence)
+let sentence = x + ' ' + y;
+console.log(sentence);
 //prints hello world
+
 ```
 
 You can also use ES6 template literals to use variables within a sentence template without having to use +'s. To use template literals, wrap your string with backticks instead of quotation marks and use ${} to wrap any variables you want to evaluate.
 
 ```js
 
-let name = "bob"
-let age = 42
+let name = 'bob';
+let age = 42;
 
-let sentence = `my name is ${name} and I am ${age} years old`
+let sentence = `my name is ${name} and I am ${age} years old`;
 //prints my name is bob and I am 42 years old
+
 ```
 
 **Additional Context**: Template literals can be used for very basic server side rendering of HTML in Node.js
 
 ## Require and Modules.export
 
-We've previously covered how to run a single Node.js file, however doing all of your work from one single file can quickly become hard to maintain. Luckily, Node.js allows us to export files as modules and import them as needed into our main application file.
+We've previously covered how to run a single Node.js file; however, doing all of your work from one single file can quickly become hard to maintain. Luckily, Node.js allows us to export files as modules and import them as needed into our main application file.
 
 ### Modules.export
 
@@ -912,19 +921,18 @@ Imagine we have the following utility functions and objects that we want to expo
 
 ```js
 //utilities.js
-function add(x,y){
-  return x + y
+function add(x, y) {
+  return x + y;
 }
 
-function multiply(x,y){
-  return x * y
+function multiply(x, y) {
+  return x * y;
 }
 
 const information = {
-    user_id: "abc123",
-    password: "secret"
-}
-  
+  user_id: 'abc123',
+  password: 'secret',
+};
 
 ```
 
@@ -932,64 +940,62 @@ One way is to individually export every single function or object we want by def
 
 ```js 
 //utilities.js
-function add(x,y){
-  return x + y
+function add(x, y) {
+  return x + y;
 }
 
-function multiply(x,y){
-  return x * y
+function multiply(x, y) {
+  return x * y;
 }
 
 const information = {
-    user_id: "abc123",
-    password: "secret"
-}
-  
+  user_id: 'abc123',
+  password: 'secret',
+};
 
+module.exports.add = add;
 
-module.exports.add = add
+module.exports.multiply = multiply;
 
-module.exports.multiply = multiply
-
-module.exports.information = information
+module.exports.information = information;
 ```
 
 Another way is to create one single module.export object that includes all the information we want to export:
 
 ```js
 //utilites.js
-function add(x,y){
-  return x + y
+function add(x, y) {
+  return x + y;
 }
 
-function multiply(x,y){
-  return x * y
+function multiply(x, y) {
+  return x * y;
 }
 
 const information = {
-    user_id: "abc123",
-    password: "secret"
-}
-  
+  user_id: 'abc123',
+  password: 'secret',
+};
 
 module.exports = {
   add: add,
   multiply: multiply,
-  information: information
-}
+  information: information,
+};
+
 ```
 ### Require
 
-Now that we've exported our utility functions, lets import the utility module we just created using require(). The require() method takes in the filepath to the node.js module you want to import as a string and then saves the imported module object to a variable. We can then access our utility functions and objects through that module object.
+Now that we've exported our utility functions, let's import the utility module we just created using require(). The require() method takes in the filepath to the node.js module you want to import as a string and then saves the imported module object to a variable. We can then access our utility functions and objects through that module object.
 
 ```js
-const utilities = require("./utilities.js")
+const utilities = require('./utilities.js');
 
-console.log(utilities.add(2,3))
+console.log(utilities.add(2, 3));
 //prints 5
-console.log(utilities.multiply(2,3))
+console.log(utilities.multiply(2, 3));
 //prints 6
-console.log(utilities.information.user_id)
+console.log(utilities.information.user_id);
 //prints abc123
 
 ```
@@ -998,7 +1004,7 @@ console.log(utilities.information.user_id)
 
 ## Lab Overview
 
-In this lab you will create a utility module full of library functions which you will then import into a test file in order to verify their functionality.
+In this lab you will create a utility module full of library functions, which you will then import into a test file in order to verify their functionality.
 
 The test file, utility file function definitions, and project structure will be given to you. You just have to fill in the function logic, import the module into the test file, and run the tests.
 
@@ -1019,7 +1025,7 @@ The utility module will be in `/src/util.js`.
 
 The test file which will run against your modules is located in `tests/app.test.js`.
 
-To test out your lab, first download all the lab dependencies with:
+To test out your lab, first, download all the lab dependencies with:
 
 ```
 // you only need to do this once
@@ -1083,16 +1089,15 @@ Answer is C.
 
 ```js
 //A
-function bar(){
-    //B
-    let foo = 3
-    function baz(){
-        //C
-        for(let i = 0; i < 3; i++){
-            //D
-        }
+function bar() {
+  //B
+  let foo = 3;
+  function baz() {
+    //C
+    for (let i = 0; i < 3; i++) {
+      //D
     }
-
+  }
 }
 
 
@@ -1112,8 +1117,9 @@ Answer is B, C and D
 
 
 ```js
-let arr = [3,5,12,9].map(x => x*3).filter( x => x > 10)
-console.log(arr)
+let arr = [3, 5, 12, 9].map((x) => x * 3).filter((x) => x > 10);
+console.log(arr);
+
 ```
 What does arr contain?
 
@@ -1130,18 +1136,19 @@ Answer is D.
 
 ```js
 let obj1 = {
-    "a":1,
-    "b":2,
-    "c":3
-}
+  a: 1,
+  b: 2,
+  c: 3,
+};
 
 let obj2 = {
-    "b":4,
-    "c":5,
-    "e":6
-}
+  b: 4,
+  c: 5,
+  e: 6,
+};
 
-let obj = {...obj2,c:4,...obj1}
+let obj = { ...obj2, c: 4, ...obj1 };
+
 ```
 What value does obj.c contain:
 

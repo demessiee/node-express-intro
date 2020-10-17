@@ -87,7 +87,7 @@ We can use the `jsonwebtoken` module to create JWTs and verify that incoming JWT
 
 To add it as dependency with:
 ```
-$ npm install jwt
+$ npm install jsonwebtoken
 
 ```
 Here's some basic code using the `jsonwebtoken` module to create and handle incoming JWTs in Express:
