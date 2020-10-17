@@ -407,7 +407,8 @@ export default ClickButton
 This is also useful if your state hasn't finished loading fetched data yet:
 
 ```jsx
-//App.jsimport React, {useState, useEffect} from 'react'
+//App.js
+import React, {useState, useEffect} from 'react'
 
 function App(){
     const [data,setData] = useState([])
