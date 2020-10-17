@@ -2,7 +2,7 @@
 
 In this lecture we will cover:
 * Continuous Integration
-* Continous Delivery
+* Continuous Delivery
 * CI with Github and Circle CI
 * Understanding Circle CI Logs
 
@@ -30,7 +30,7 @@ Here's a high level overview of the CI/CD phases:
     2. Integration tests, load tests, and other tests are run
     3. If tests are successful, the builds can be deployed to production after a manual approval. Otherwise, a report of what went wrong will be sent out. 
 3. Continuous Deployment Phases
-    1. In Continuous Ceployment, builds are automatically deployed to Production after passing tests in the staging environment
+    1. In Continuous Deployment, builds are automatically deployed to Production after passing tests in the staging environment
 
 
 ## Continuous Integration 
@@ -42,7 +42,7 @@ In the past, developers on a team might work in isolation for an extended period
 ### How does Continuous Integration Work?
 With continuous integration, developers frequently commit to a shared repository using a version control system such as Git. Prior to each commit, developers may choose to run local unit tests on their code as an extra verification layer before integrating. A continuous integration service automatically builds and runs unit tests on the new code changes to immediately surface any errors.
 
-## Continous Delivery
+## Continuous Delivery
 
 Continuous delivery is a software development practice where code changes are automatically prepared for a release to production. Continuous delivery expands upon continuous integration by deploying all code changes to a testing environment and/or a production environment after the build stage. When properly implemented, developers will always have a deployment-ready build artifact that has passed through a standardized test process. 
 
@@ -71,13 +71,13 @@ The old server group can be called the blue environment while the new server gro
 Blue Green deployment takes more infrastructure cost to duplicate the entire server group, but is easier to rollback in case of issues. 
 
 ## Knowledge Check 1
-What is the difference between Continous Integration and Continuous Delivery
+What is the difference between Continuous Integration and Continuous Delivery
 
 ```
-A. Continous Delivery is manual while Continuous Integration is automatic
-B. Continous Integration happens after Continuous Delivery
-C. Continuous Integrations is about building and testing your code while Continous Delivery is about deploying it to users
-D. Continuous Delivery is about building and testing your code while Continous Intergation is about deploying it to users
+A. Continuous Delivery is manual while Continuous Integration is automatic
+B. Continuous Integration happens after Continuous Delivery
+C. Continuous Integrations is about building and testing your code while Continuous Delivery is about deploying it to users
+D. Continuous Delivery is about building and testing your code while Continuous Intergation is about deploying it to users
 ```
 
 
@@ -368,13 +368,13 @@ For additional information on how to configure a CircleCi pipeline, visit the of
 # Knowledge Check Answers
 
 ## Knowledge Check 1
-What is the difference between Continous Integration and Continuous Delivery
+What is the difference between Continuous Integration and Continuous Delivery
 
 ```
-A. Continous Delivery is manual while Continuous Integration is automatic
-B. Continous Integration happens after Continuous Delivery
-C. Continuous Integrations is about building and testing your code while Continous Delivery is about deploying it to users
-D. Continuous Delivery is about building and testing your code while Continous Intergation is about deploying it to users
+A. Continuous Delivery is manual while Continuous Integration is automatic
+B. Continuous Integration happens after Continuous Delivery
+C. Continuous Integrations is about building and testing your code while Continuous Delivery is about deploying it to users
+D. Continuous Delivery is about building and testing your code while Continuous Intergation is about deploying it to users
 ```
 
 Answer is C. 
