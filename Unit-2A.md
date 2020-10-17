@@ -563,10 +563,6 @@ Your stakeholders are requesting that you add the following endpoints:
 * PUT /api/employee - updates an employee employee with information added in body, inserts employee if the id doesnt exist
 * DELETE /api/employee/:id - deletes an employee based off their id
 
-```
-
-```
-
 ### Body format
 The POST and PUT endpoints should accept the following body or querystring format:
 
@@ -580,7 +576,6 @@ The POST and PUT endpoints should accept the following body or querystring forma
   last_promoted,
   salary
 }
-
 ```
 
 Here are the default values you should use if any of the body properties are missing for the POST or PUT request:
