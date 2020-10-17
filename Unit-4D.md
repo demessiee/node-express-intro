@@ -335,6 +335,38 @@ Try, stretching and shrinking the browser width to see how the Grid sections rea
 
 **Additional Context:** The Grid container will use the amount of space that it inherits, so if you wrap it with a `<Container>` it will divide up the truncated space that it has into twelfths. If you put a Grid container within another Grid item section, it will divide that Grid items section width into twelfths as well.
 
+## Knowledge Check 1
+
+```jsx
+    <Grid container>
+          <Grid item xs={12}>
+            <Box height = "200px" border="1px solid black">.</Box>
+          </Grid>
+          <Grid item xs={9}>
+            <Box height = "200px" border="1px solid black">.</Box>
+          </Grid>
+          <Grid item xs={5}>
+            <Box height = "200px" border="1px solid black">.</Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Grid container>
+                <Grid item xs={9}>
+                    <Box height = "200px" border="1px solid black">.</Box>
+                <Grid>
+            </Grid>
+          </Grid>
+        </Grid>  
+```
+
+How many rows will be in the above grid?
+
+```
+A. 1
+B. 2
+C. 3
+D. 4
+```
+
 
 ## Other Useful Components
 
@@ -461,7 +493,6 @@ You also specify how filled you want the progress bar to be by setting the `vari
 <LinearProgress variant="determinate" value={progress} />
 ```
 
-### Card
 
 ### AppBar and Tabs
 
@@ -541,6 +572,17 @@ export default App
 ```
 
 Its often difficult to use Icons by themselves. It is recommended to wrap them with an `<IconButton>` component or use them as the startIcon or endIcon attribute of a `<Button>` component.
+
+## Knowledge Check 2
+
+How many button style variants does the Material UI Button have?
+```
+A. 1
+B. 2
+C. 3
+D. 4
+```
+
 
 ## React Router
 
@@ -792,6 +834,16 @@ It also has the following methods:
 
 The push() method is particular useful because you can programatically call `props.history.push("/someRoute")` to change the URL during a click event or during some other logic.
 
+## Knowledge Check 3
+
+What Route property has information about the URL path that the Route was rendered on?
+
+```
+A. match
+B. location
+C. history
+D. path
+```
 
 #### URL Parameters
 URL parameters are segments of your URL path that can vary and be parsed from the URL. To define a segment of your path to be a URL param, add a colon in front of the segment name:
@@ -932,6 +984,15 @@ function App(){
 export default App
 ```
 
+## Knowledge Check 4
+
+How many Routes can be rendered from a Switch statement?
+```
+A. One As many Routes that match the URL
+B. As many Routes that match the URL
+C. Two
+D. You set a property in the switch statement to determine how many
+```
 
 ## Redirects
 
@@ -1063,3 +1124,83 @@ npx create-react-app client
 ```js
 fetch("/api/ping")
 ```
+
+
+
+# Knowledge Check Answers
+
+
+## Knowledge Check 1
+
+```jsx
+    <Grid container>
+          <Grid item xs={12}>
+            <Box height = "200px" border="1px solid black">.</Box>
+          </Grid>
+          <Grid item xs={9}>
+            <Box height = "200px" border="1px solid black">.</Box>
+          </Grid>
+          <Grid item xs={5}>
+            <Box height = "200px" border="1px solid black">.</Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Grid container>
+                <Grid item xs={9}>
+                    <Box height = "200px" border="1px solid black">.</Box>
+                <Grid>
+            </Grid>
+          </Grid>
+        </Grid>  
+```
+
+How many rows will be in the above grid?
+
+```
+A. 1
+B. 2
+C. 3
+D. 4
+```
+
+Answer is C.
+
+
+## Knowledge Check 2
+
+How many button style variants does the Material UI Button have?
+```
+A. 1
+B. 2
+C. 3
+D. 4
+```
+
+Answer is C.
+
+
+## Knowledge Check 3
+
+What Route property has information about the URL path that the Route was rendered on?
+
+```
+A. match
+B. location
+C. history
+D. path
+```
+
+Answer is A.
+
+## Knowledge Check 4
+
+How many Routes can be rendered from a Switch statement?
+```
+A. One As many Routes that match the URL
+B. As many Routes that match the URL
+C. Two
+D. You set a property in the switch statement to determine how many
+```
+
+Answer is A.
+
+

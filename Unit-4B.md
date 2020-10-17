@@ -141,6 +141,22 @@ export default App
 ```
 Now, if we save and go to localhost:3000, we can see three buttons that keep track of their own clicks independently of eachother.
 
+## Knowledge Check 1
+
+```jsx
+const [list,setList] = useState([1,2,3])
+setList(4)
+```
+
+If I execute `setList(4)` What will `list` contain afterward?
+```
+A. [1,2,3,4]
+B. [1,2,3]
+C. [4]
+D. 4
+```
+
+
 ## Using Props and State
 
 Props and State can be used together. 
@@ -268,6 +284,44 @@ We modified ClickButton.js to add the following things:
 
 If we save both files and go to localhost:3000, we can now see total amount of clicks that were obtained by clicking on any of the buttons!
 
+
+## Knowledge Check 2
+
+```jsx
+//App.js
+import React, {useState} from 'react'
+import ClickButton from './ClickButton.js'
+
+function App(){
+
+    const [clicksArr,setClicksArr] = useState([0,0,0])
+
+    const handleClick = (id,interval) => {
+        let tempClicksArr = [...clicksArr]
+        tempClicksArr[id] = tempClicksArr[id] + interval
+        setClicksArr(tempClicksArr)
+    } 
+
+    return (
+        <div>
+            <ClickButton id = {0} onClick={handleClick} clicks={clicksArr[0]} interval={2}/> 
+        </div>
+    )
+}
+
+export default App
+
+```
+
+In the above code, handleClick is passed down as props into ClickButton. How can clickButton reference handleClick?
+
+```
+A. props.handleClick
+B. props.onClick
+C. handleClick
+D. It can't
+```
+
 ### useEffect
 
 There is another useful method from the React library called `useEffect`.
@@ -340,7 +394,7 @@ That makes sense, because only the `props.clicks` of the the button that gets cl
 
 ### useEffect and Fetching Data
 
-If you want a React component to load data from an API when it first mounts for the first time, you should do the data fetching within useEffect. You can pass an empty array as the second argument to prevent the useEffect callback from running again.
+If you want a React component to load data from an API when it first mounts for the first time, you should do the data fetching within useEffect(). You can pass an empty array as the second argument to prevent the useEffect callback from running again.
 
 
 ```jsx
@@ -383,6 +437,20 @@ export default App
 The above example fetches an array of Starwars film data from the Starwars API. It then maps the resulting json array into a chunk of HTML that shows the Episode number, title and opening credits.
 
 
+## Knowledge Check 3
+
+
+
+
+If you want to make an API request, where should you do it?
+```
+A. At the top of the React component
+B. Inside useState()
+C. Inside useEffect()
+D. In the return statement of the React component
+```
+
+
 ## Conditional Rendering
 
 Sometimes you can conditionally different HTML elements based on your props or state.
@@ -401,7 +469,7 @@ function User(props){
         return <p>Please Log In</p>
     }
 }
-export default ClickButton
+export default User
 ```
 
 This is also useful if your state hasn't finished loading fetched data yet:
@@ -452,3 +520,119 @@ In the above example, we added a state variable, `loading` to represent whether 
 We then use conditional rendering to display `Loading...please wait` when `loading` is true.
 
 The end result is that we show `Loading...please wait` for a few seconds until the data fetched, before switching over to showing the fetched data.
+
+## Knowledge Check 4
+
+
+```jsx
+//Mystery.js
+import React from 'react'
+
+function Mystery(props){
+    return props.solved? <div>The Mystery is solved</div> : <div>Unsolved Mystery</div>
+}
+export default Mystery
+```
+
+What will `<Mystery solved={false}/>` render?
+```
+A. The Mystery is solved
+B. Unsolved Mystery
+```
+
+
+# Knowledge Check Answers
+
+## Knowledge Check 1
+
+
+```jsx
+const [list,setList] = useState([1,2,3])
+setList(4)
+```
+
+If I execute `setList(4)` What will `list` contain afterward?
+```
+A. [1,2,3,4]
+B. [1,2,3]
+C. [4]
+D. 4
+```
+
+Answer is D.
+
+
+
+
+## Knowledge Check 2
+
+```jsx
+//App.js
+import React, {useState} from 'react'
+import ClickButton from './ClickButton.js'
+
+function App(){
+
+    const [clicksArr,setClicksArr] = useState([0,0,0])
+
+    const handleClick = (id,interval) => {
+        let tempClicksArr = [...clicksArr]
+        tempClicksArr[id] = tempClicksArr[id] + interval
+        setClicksArr(tempClicksArr)
+    } 
+
+    return (
+        <div>
+            <ClickButton id = {0} onClick={handleClick} clicks={clicksArr[0]} interval={2}/> 
+        </div>
+    )
+}
+
+export default App
+
+```
+
+In the above code, handleClick is passed down as props into ClickButton. How can clickButton reference handleClick?
+
+```
+A. props.handleClick
+B. props.onClick
+C. handleClick
+D. It can't
+```
+
+Answer is B.
+
+## Knowledge Check 3
+
+
+If you want to make an API request, where should you do it?
+```
+A. At the top of the React component
+B. Inside useState()
+C. Inside useEffect()
+D. In the return statement of the React component
+```
+
+Answer is C.
+
+## Knowledge Check 4
+
+
+```jsx
+//Mystery.js
+import React from 'react'
+
+function Mystery(props){
+    return props.solved? <div>The Mystery is solved</div> : <div>Unsolved Mystery</div>
+}
+export default Mystery
+```
+
+What will `<Mystery solved={false}/>` render?
+```
+A. The Mystery is solved
+B. Unsolved Mystery
+```
+
+Answer is B.

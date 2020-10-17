@@ -112,6 +112,40 @@ If we want to pass in all attributes at the same time, a shorthand way to do tha
     itemsList.map((x,i) => <Item key={i} {...x}/>)
 ```
 
+
+## Knowledge Check 1
+
+```
+//App.js
+import React from 'react'
+import Item from './Item.js'
+
+function App(){
+    let itemsList = [
+        {name:"apple",price:3.50},
+        {name:"banana",price:4.25},
+        {name:"carrot",price:2.00}
+
+    ]
+    return (
+        <div>
+            itemsList.map((x,i) => {<Item key={i} name={x.name} price={x.price}}/>)
+        </div>
+    )
+}
+
+export default App
+```
+
+
+What is wrong with the code listed above? Select all that applies.
+```
+A. It uses an index for a key
+B. It doesnt use arrow functions correctly
+C. itemsList.map() is not surrounded by curly braces 
+D. It does not import ReactList from the React library
+```
+
 ### Tables
 
 
@@ -383,6 +417,15 @@ What did we do here?
 ```
 
 
+## Knowledge Check 2
+What is true about Controlled Components?
+```
+A. A controlled component is any HTML element that can take input
+B. A controlled component has its state controlled by a parent component
+C. An controlled component has no state, only props
+D. A controlled component has its input value mapped to its state
+```
+
 ## Submitting Form Values with Buttons
 
 We usually want to have a button that will allow us to do something with our form input data, whether thats to insert it to a database or add it to a list.
@@ -506,6 +549,17 @@ In the above example, we added the following things:
 
 
 Now if we go to localhost:3000 and press the Submit button, a new row with the current form data gets added to our table!
+
+
+## Knowledge Check 3
+Assuming `event` get passed as the first argument to an onChange event handler, what holds the value of the input form that the onChange event handler is attached to? 
+
+```
+A. event.value
+B. event.target
+C. event.target.value
+D. event.input
+```
 
 ### Removing Items from a List
 
@@ -756,6 +810,9 @@ You'll notice that we imported `App.css` at the top and also added classNames to
 
 Now if we look at localhost:3000, our form look somewhat more stylish.
 
+
+
+
 ## Composition
 
 The form and table display that we just created would be a good candidate for a stand alone React component. It has one primary focus and it would handle its own state.
@@ -828,3 +885,64 @@ This is just a theoretical example, but you can already see how LeftNav itself i
 
 **Best Practice:** Before you even start coding, it is important to think about the overall composition of your web app, so you can go about creating react components thoughtfully.
 
+
+
+
+# Knowledge Check Answers
+
+## Knowledge Check 1
+
+```
+//App.js
+import React from 'react'
+import Item from './Item.js'
+
+function App(){
+    let itemsList = [
+        {name:"apple",price:3.50},
+        {name:"banana",price:4.25},
+        {name:"carrot",price:2.00}
+
+    ]
+    return (
+        <div>
+            itemsList.map((x,i) => {<Item key={i} name={x.name} price={x.price}}/>)
+        </div>
+    )
+}
+
+export default App
+```
+
+
+What is wrong with the code listed above? Select all that applies.
+```
+A. It uses an index for a key
+B. It doesnt use arrow functions correctly
+C. itemsList.map() is not surrounded by curly braces 
+D. It does not import ReactList from the React library
+```
+
+Answer is B and C.
+
+## Knowledge Check 2
+What is true about Controlled Components?
+```
+A. A controlled component is any HTML element that can take input
+B. A controlled component has its state controlled by a parent component
+C. An controlled component has no state, only props
+D. A controlled component has its input value mapped to its state
+```
+
+Answer is D.
+
+## Knowledge Check 3
+Assuming `event` get passed as the first argument to an onChange event handler, what holds the value of the input form that the onChange event handler is attached to? 
+
+```
+A. event.value
+B. event.target
+C. event.target.value
+D. event.input
+```
+Answer is C.

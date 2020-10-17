@@ -360,6 +360,16 @@ Again, there's alot of stuff we might not understand. The key thing to know is t
 
 React components by themselves are just definitions, they have to be rendered to an HTML page in order to have their output displayed. That is what happens in the index.js file. It is importing this React component and then rendering it into a specific `<div>` inside index.html.
 
+## Knowledge Check 1
+
+Which file will your React components be embedded in?
+```
+A. /public/index.html
+B. /src/App.js
+C. /src/index.js
+D. package.json
+```
+
 
 ## Serving our React app locally in development mode
 
@@ -549,6 +559,13 @@ If there is a # in front the selector, the rule will apply to any HTML elements 
 
 If there is a . in front of the selector, the rule will apply to any HTML elements with a class attribute equal to to the selector.
 
+## Knowledge Check 2
+
+True or false? You can embed HTML elements within other HTML elements
+```
+A. True
+B. False
+```
 
 ## JSX
 
@@ -873,6 +890,17 @@ function App() {
 export default App
 ```
 
+## Knowledge Check 3
+
+How do you evaluate JavaScript expressions within HTML elements in JSX?
+
+```
+A. Surround the JavaScript expression with ${}
+B. Surround the JavaScript expression with {}
+C. Surround the JavaScript expression with "{}"
+D. Surround the JavaScript expression with {{}}
+```
+
 ## Basic React Components
 
 As we saw earlier in the quickstart section, a basic React component is just a JavaScript function that returns some HTML.
@@ -1012,7 +1040,33 @@ export default App;
 
 ```
 
+## Knowledge Check 4
 
+
+```jsx
+//App.js
+import React from 'react' 
+
+function Message(props){ 
+  return (
+    <div>Once upon a time there was a props.value</div> 
+  )
+}
+
+function App(){
+  <Message value="cat"/>
+}
+export default App
+```
+
+What will the App() render?
+
+```
+A. Once upon a time there was a cat
+B. Once upon a time there was a props.value
+C. Once upon a time there was a 
+D. Nothing
+```
 
 ### Import and Export
 
@@ -1118,3 +1172,71 @@ By selecting one of the components in the tree, you can inspect and edit its cur
 
 You can read more about the experimental Profiler tool here:
 https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html
+
+# Knowledge Check Answers
+
+## Knowledge Check 1
+
+Which file will your React components be embedded in?
+```
+A. /public/index.html
+B. /src/App.js
+C. /src/index.js
+D. package.json
+```
+
+Answer is A.
+
+## Knowledge Check 2
+
+True or false? You can embed HTML elements within other HTML elements
+```
+A. True
+B. False
+```
+
+Answer is A.
+
+## Knowledge Check 3
+
+How do you evaluate JavaScript expressions within HTML elements in JSX?
+
+```
+A. Surround the JavaScript expression with ${}
+B. Surround the JavaScript expression with {}
+C. Surround the JavaScript expression with "{}"
+D. Surround the JavaScript expression with {{}}
+```
+
+Answer is B.
+
+
+## Knowledge Check 4
+
+
+```jsx
+//App.js
+import React from 'react' 
+
+function Message(props){ 
+  return (
+    <div>Once upon a time there was a props.value</div> 
+  )
+}
+
+function App(){
+  <Message value="cat"/>
+}
+export default App
+```
+
+What will the App() render?
+
+```
+A. Once upon a time there was a cat
+B. Once upon a time there was a props.value
+C. Once upon a time there was a 
+D. Nothing
+```
+
+Answer is B.
