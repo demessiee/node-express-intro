@@ -19,7 +19,7 @@
                 *   Arrow Functions
             *   Require and Export
         *   Lab (1 hr 30 min)
-            *   Students will set up a local Node.js development environment and create a couple utility functions which they will import into a test file
+            *   The student will set up a local Node.js development environment and create a couple utility functions which they will import into a test file
     *   [Unit 1B (2 hours): Core Node Modules](Unit-1B.md) 
         *   Lecture (30 min)
             *   Core Node Modules

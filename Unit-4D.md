@@ -1126,6 +1126,14 @@ fetch("/api/ping")
 ```
 
 
+# Unit 4-D Lab
+
+## Lab Overview
+
+## Lab Starter Code
+
+## Lab Solution
+
 
 # Knowledge Check Answers
 
