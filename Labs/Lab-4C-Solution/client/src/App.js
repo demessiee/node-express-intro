@@ -46,13 +46,12 @@ function App() {
     })
   }
 
-  const handleDelete = () => {
-    fetch('http://localhost:8000/api/employee',{
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+  const handleDelete = (id) => {
+    fetch(`http://localhost:8000/api/employee/${id}`,{
+      method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(input) 
+      }
     })
     .then(res => res.json())
     .then(res => {
@@ -176,7 +175,7 @@ function App() {
         <button onClick={getEmployees}>Search</button>
       </div>
      <div style={{margin:"20px"}}>
-      <Table employees={employees}/>
+      <Table handleDelete={handleDelete} employees={employees}/>
      </div>
     </div>
   );

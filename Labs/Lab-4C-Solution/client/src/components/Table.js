@@ -17,7 +17,7 @@ function Table(props) {
         </tr>
       </thead>
       <tbody>
-        {props.employees.map(employee => <TableBody key={employee._id} {...employee} />)}
+        {props.employees.map(employee => <TableBody handleDelete={props.handleDelete} key={employee._id} {...employee} />)}
       </tbody>
     </table>
 
