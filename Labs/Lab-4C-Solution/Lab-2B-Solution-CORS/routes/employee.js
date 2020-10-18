@@ -89,7 +89,7 @@ router.put('/employee', (req, res) => {
     res.json(result)
 })
 
-router.delete('/employee/id/:id', async (req, res) => {
+router.delete('/employee/:id', async (req, res) => {
     if(req.params.id === null)
         res.status(400).send("id not found")
     let result = await Item.deleteOne({_id:req.params.id})
