@@ -72,27 +72,28 @@ router.post('/employee', async (req, res) => {
     
 })
 
-router.put('/employee', (req, res) => {
-    let employee = new Employee({
-        _id:req.body.id,
-        first_name:req.body.first_name || "N/A",
-        last_name:req.body.last_name || "N/A",
-        email:req.body.email || "N/A",
-        department:req.body.department || "N/A",
-        last_promoted:req.body.last_promoted || 2021,
-        salary:req.body.salary || 0
-    })
+router.put('/employee', async (req, res) => {
+
     if(req.body.id === null)
         res.status(400).send("id not found")
 
-    let result = employee.save()
+    let employee = await Employee.findOne({_id:req.body.id})
+
+    employee.first_name = req.body.first_name || "N/A"
+    employee.last_name = req.body.last_name || "N/A"
+    employee.email = req.body.email || "N/A"
+    employee.department = req.body.department || "N/A"
+    employee.last_promoted = req.body.last_promoted || 2021
+    employee.salary = req.body.salary || 0
+
+    let result = await employee.save()
     res.json(result)
 })
 
-router.delete('/employee', async (req, res) => {
+router.delete('/employee/:id', async (req, res) => {
     if(req.params.id === null)
         res.status(400).send("id not found")
-    let result = await Item.deleteOne({_id:req.params.id})
+    let result = await Employee.deleteOne({_id:req.params.id})
     res.json(result)
 })
 

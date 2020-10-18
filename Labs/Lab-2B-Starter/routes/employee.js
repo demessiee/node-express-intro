@@ -178,7 +178,7 @@ router.put('/employee', (req, res) => {
     });
 })
 
-router.delete('/employee/id/:id', (req, res) => {
+router.delete('/employee/:id', (req, res) => {
 
     fs.readFile('./public/employee_data.json', (err, data) => {
         if (err) throw err;

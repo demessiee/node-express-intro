@@ -184,21 +184,26 @@ import React from 'react'
 function App(){
     return (
         <table border={"1px solid black"}>
-            <tr>
-                <th>Full Name</th>
-                <th>Description</th>
-                <th>Going?</th>
-            </tr>
-            <tr>
-                <td>Jill Smith</td>
-                <td>Black Hair, 5.5 inches tall, 50 years old</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Eve Jackson</td>
-                <td>Red Hair, 5.2 inches tall, 94 years old</td>
-                <td>No</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Description</th>
+                    <th>Going?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jill Smith</td>
+                    <td>Black Hair, 5.5 inches tall, 50 years old</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Eve Jackson</td>
+                    <td>Red Hair, 5.2 inches tall, 94 years old</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+
         </table>
     )
 }
@@ -217,11 +222,13 @@ import React from 'react'
 
 function TableHeader(){
     return (
-        <tr>
-            <th>Full Name</th>
-            <th>Description</th>
-            <th>Going?</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Description</th>
+                <th>Going?</th>
+            </tr>
+        </thead>
     )
 }
 export default TableHeader
@@ -260,9 +267,11 @@ function Table(props){
     return (
         <table border={"1px solid black"}>
             <TableHeader/>
+            <tbody>
             {
                 props.people.map( person => <TableBody {...person}/>)
             }
+            </tbody>
         </table>
     )
 }
@@ -636,12 +645,14 @@ import React from 'react'
 
 function TableHeader(){
     return (
-        <tr>
-            <th>Full Name</th>
-            <th>Description</th>
-            <th>Going?</th>
-            <th>Delete</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Description</th>
+                <th>Going?</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
     )
 }
 export default TableHeader
@@ -660,9 +671,11 @@ function Table(props){
     return (
         <table border={"1px solid black"}>
             <TableHeader/>
+            <tbody>
             {
                 props.people.map( (person,i) => <TableBody id={i} deletePerson={props.deletePerson} {...person}/>)
             }
+            </tbody>
         </table>
     )
 }
