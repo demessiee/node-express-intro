@@ -46,6 +46,23 @@ function App() {
     })
   }
 
+  const handleUpdate = () => {
+    fetch('http://localhost:8000/api/employee',{
+      method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(input) 
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      setLoading(true)
+      getEmployees()
+    })
+
+  }
+
   const handleDelete = (id) => {
     fetch(`http://localhost:8000/api/employee/${id}`,{
       method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
@@ -85,8 +102,21 @@ function App() {
     .then(res => res.json())
     .then(res => {
       console.log(res)
-      setEmployees(res)
-      setLoading(false)
+      if(res.length === 0){
+        //if not found
+        setLoading(false)
+        setEmployees(res)
+      }else{
+        setEmployees(res)
+        setLoading(false)
+        let employee = res[0]
+        //load found employee into input form
+        let temp = {...employee,
+          id:employee._id
+        }
+        setInput(temp)
+
+      }
     })
   }
   const getEmployees = () => {
@@ -146,8 +176,10 @@ function App() {
             <input name="last_promoted" value={input.last_promoted} onChange={handleChange} />
           </div>
           <div style={{marginTop:"10px"}}>
-            <p>Submit</p>
+            <p>Submit/Update</p>
             <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleUpdate}>Update</button>
+
           </div>
         </div>
         <div style={{margin:"20px",float:"right"}}>
