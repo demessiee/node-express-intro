@@ -129,12 +129,9 @@ function App() {
     })
   }
   useEffect(()=>{
-    fetch('http://localhost:8000/api/employees')
-    .then(res => res.json())
-    .then(res => {
-      console.log(res)
-      getEmployees()
-    })
+  
+    getEmployees()
+
   },[])
   if(loading)
     return <div>loading...</div>
