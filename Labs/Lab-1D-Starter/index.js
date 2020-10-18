@@ -7,8 +7,8 @@ const port = 3000
 app.get('/', (req, res) => {
   fs.readFile('./public/employee_data.json', (err, data) => {
     if (err) throw err;
-    let result = JSON.parse(data); //JSON.parse will parse the contents of the file into json object you can use
-    res.json(result)
+    let json = JSON.parse(data); //JSON.parse will parse the contents of the file into json object you can use
+    res.json(json)
   });
 })
 
