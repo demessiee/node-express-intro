@@ -2,7 +2,7 @@
 
 ## Lab Overview
 
-In this lab you will create a utility module full of library functions which you will then import into a test file in order to verify their functionality.
+In this lab you will create a utility module full of library functions, which you will then import into a test file in order to verify their functionality.
 
 The test file, utility file function definitions, and project structure will be given to you. You just have to fill in the function logic, import the module into the test file, and run the tests.
 
@@ -17,13 +17,13 @@ To complete the lab:
 ## Lab Starter Code
 
 The Lab starter code can be cloned here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1A-Starter
 
 The utility module will be in `/src/util.js`.
 
 The test file which will run against your modules is located in `tests/app.test.js`.
 
-To test out your lab, first download all the lab dependencies with:
+To test out your lab, first, download all the lab dependencies with:
 
 ```
 // you only need to do this once
@@ -62,4 +62,5 @@ Ran all test suites.
 ## Lab Solution
 
 The lab solution can be found here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1A-Solution
+

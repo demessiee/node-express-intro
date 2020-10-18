@@ -5,7 +5,7 @@ In this lab you will be setting up a CI pipeline using Circle CI and Github.
 
 The lab instructions will purposely have you encounter pipeline errors so that you can learn to understand what the error reports mean and fix them.
 
-### Part 1: Connecting GitHub to Circle CI
+### Connecting GitHub to Circle CI
 
 Create a [Github](https://github.com/) account if you don't have one already.
 
@@ -27,13 +27,13 @@ You should now be in the projects section of Circle CI. Click `Set Up Project` n
 ![circleci_projects](./images/circleci_projects.png)
 
 
-Circle CI will attempt to a merge a `circleci.yml` file into your repo that will define how the CI pipeline will look like. Be sure to select the Node template for your config file and then click Add Config.
+Circle CI will attempt to a merge a `config.yml` file into your repo that will define how the CI pipeline will look like. Be sure to select the Node template for your config file and then click Add Config.
 
 ![circleci_add_config](./images/circleci_add_config.png)
 
-*Note: * If CircleCI is glitching and says it can add the file to your repo, create a folder named `.circle` and put copy the contents of the config file and store it in `.circle/config.yml`.
+*Note: * If CircleCI is glitching and says it can add the file to your repo, create a folder named `.circle` and put copy the contents of the config file and store it in `.circleci/config.yml`.
 
-If you go back to GitHub, you will see that there will be a pull request waiting. Assign yourself as an approver and merge the request. Once the merge is approved there should be a `.circle/config.yml` file with the Node pipeline configuration.
+If you go back to GitHub, you will see that there will be a pull request waiting. Assign yourself as an approver and merge the request. Once the merge is approved there should be a `.circleci/config.yml` file with the Node pipeline configuration.
 
 
 ### Triggering your pipeline 
@@ -214,9 +214,11 @@ This section `No tests found, exiting with code 1` indicates that the stage fail
 To fix this, lets move all of the source files from our project in Lab 3A, which should have a bunch of test cases. This also lets us test to see if our Express project will pass the CircleCI pipeline stages.
 
 You can access the solution for Lab 3A here:
-//TODO 
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-3A-Solution
 
-Make sure not to accidentally remove the `.circle/circleci.yml` file. You don't need to move node_modules into the repo, as we will rebuild it.
+**Note:** Make sure to swap the MongoDB database connecting string in `index.js` with your own cloud MongoDB instance's connection string.
+
+Make sure not to accidentally remove the `.circleci/config.yml` file. You don't need to move node_modules into the repo, as we will rebuild it.
 
 Rebuild your node_modules folder by running:
 ```
@@ -250,5 +252,3 @@ You can view the logs of any of the successful stages by clicking on the dropdow
 This lab only walks you through the default pipeline for Node projects provided by CircleCI.
 
 For additional information on how to configure a CircleCi pipeline, visit the official documentation: https://circleci.com/docs/2.0/configuration-reference/
-
-

@@ -1,3 +1,5 @@
+# Unit 4-B Lab
+
 ## Lab Overview
 
 Your lab assignment will be to create a carousel React component similar to the one seen here at the Honda website:
@@ -24,7 +26,7 @@ If you get stuck with the CSS, just start by trying to display all the correct p
 The lab starter code will include some basic templating and all of the product details in an object. It is your job to handle the state changes so that the right product gets displayed in the carousel as the users click Next and Back and change category.
 
 You can clone your starter code here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4B-Starter
 
 Make sure to install all of the dependencies with:
 ```
@@ -33,4 +35,4 @@ $ npm install
 
 ## Lab Solution
 You can view the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4B-Solution

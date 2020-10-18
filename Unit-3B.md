@@ -118,7 +118,7 @@ In this lab you will be setting up a CI pipeline using Circle CI and Github.
 
 The lab instructions will purposely have you encounter pipeline errors so that you can learn to understand what the error reports mean and fix them.
 
-### Part 1: Connecting GitHub to Circle CI
+### Connecting GitHub to Circle CI
 
 Create a [Github](https://github.com/) account if you don't have one already.
 

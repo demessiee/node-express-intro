@@ -1,22 +1,59 @@
-
-# Lecture 2-B Lab
+# Unit 2-A Lab
 
 ## Lab Overview
 
-Your engineering team at ABC Solutions Company has just adopted MongoDB as their primary database for storing employee data. You are in charge of migrating all of the endpoints to read and write to MongoDB instead of the JSON file.
+Your stakeholders at ABC Solutions Company want you to update your employee data API so that it can also support POST, PUT and DELETE requests to modify employee data.
 
-In addition, you must also use Mongoose schemas to model your employee data. Your code base is starting to get complex, so it is recommended to have Mongoose schemas in their own folder calls `models` and import them as needed.
+Your stakeholders are requesting that you add the following endpoints:
 
-Lastly, your MongoDB database won't have all of the employee data so you will need to import in the employee data from the JSON file.
+* GET /api/employees - gets all employees as a JSON array
+* GET /api/employee/salary - get all users with a salary that is between the `high` and `low` values listed as querystrings parameters
+* POST /api/employee - adds a new employee with information added in body, updates an existing employee if the id already exists 
+* PUT /api/employee - updates an employee employee with information added in body, inserts employee if the id doesnt exist
+* DELETE /api/employee/:id - deletes an employee based off their id
 
-**Hint**: When inserting a new employee with POST, just use save(). When updating an existing employee with PUT, first use findOne() then modify the result and then use save(). You can't update an employee with save() without first finding them in the database.
+### Body format
+The POST and PUT endpoints should accept the following body or querystring format:
+
+```
+{
+  id,
+  first_name,
+  last_name,
+  email,
+  department,
+  last_promoted,
+  salary
+}
+```
+
+Here are the default values you should use if any of the body properties are missing for the POST or PUT request:
+
+* id - if id is null, throw an error
+* first_name - "N/A"
+* last_name - "N/A"
+* email - "N/A"
+* department - "N/A"
+* last_promoted - 2021
+* salary - 0
+
+
+### Additional Lab Requirements
+* Your endpoints should be reading and writing from the employee_data.json file. When reading from the file make sure to use JSON.parse() to convert the file text into a JSON object. Also be sure to use JSON.stringify() to convert any JavaScript objects into text strings before you write them out to the employee_data.json file.
+
+* The POST, PUT, and DELETE endpoints should return the endpoint that was just added/updated/deleted back to the client.
+
+* Move your endpoints that are currently in index.js into an employee route handler file named `employeesRoutes.js` and store that file under a `routes` folder. Then import the employee route handler into your index.js file.
+
+
 
 ## Lab Starter Code
 
-Your lab for Unit 2B will start off where your lab for unit 2A ended. 
+
+Your lab for Unit 2A will start off where your lab for unit 1D ended off. If you need a fresh copy of employee_data.json there is a master copy you can copy into your employee_data.json file.
 
 You can clone your starter code here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2A-Starter
 
 Make sure to install all of the dependencies with:
 ```
@@ -26,29 +63,12 @@ $ npm install
 You can run your server with:
 
 ```
-$ node index.js
+node index.js
 ```
 
-### Seeding your MongoDB Database with JSON Data
-
-To import the all employees from the employee data JSON file into your MongoDB database as documents, take the following steps:
-
-1. Connect to your MongoDB instance with Compass
-2. Select the database you want to use
-3. Select the `employees` collection, create a new collection named `employees` if it doesn't exist yet
-4. Click the Add Data dropdown, click Import File, browse to `employee_data_master_copy.json`, make sure to select JSON as the file type, then click Import.
-5. Verify that your data was added successfully (there should be 943 documents)
-
-
-Here's the official documentation on importing data into MongoDB.
-https://docs.mongodb.com/compass/master/import-export
-
-
-
-
-If you need a fresh `employee_data.json` file at any point you can copy over the contents from `employee_data_master_copy.json` which should also be in the public folder of your lab.
+Test your solution with the Advanced REST Client to verify that all your endpoints work.
 
 ## Lab Solution
 
 You can find the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2A-Solution

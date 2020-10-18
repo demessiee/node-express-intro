@@ -682,7 +682,7 @@ mongoose
 ```
 
 
-# Lecture 2-B Lab
+# Unit 2-B Lab
 
 ## Lab Overview
 

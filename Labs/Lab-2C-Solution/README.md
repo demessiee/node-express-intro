@@ -37,7 +37,9 @@ Both of these POST requests should accept the following body format:
 Your lab for Unit 2B will start off where your lab for unit 2A ended off. 
 
 You can clone your starter code here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2C-Starter
+
+**Note:** Make sure to swap the MongoDB database connecting string in `index.js` with your own cloud MongoDB instance's connection string.
 
 Make sure to install all of the dependencies with:
 ```
@@ -53,9 +55,6 @@ $ node index.js
 ## Lab Solution
 
 You can find the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2C-Solution
 
-
-
-
-
+**Note:** Make sure to swap the MongoDB database connecting string in `index.js` with your own cloud MongoDB instance's connection string if you test out the solution.

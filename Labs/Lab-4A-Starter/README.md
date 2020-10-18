@@ -34,7 +34,10 @@ Since we did not do a full in-depth lecture on HTML and CSS, be sure to use Hoog
 
 You won't be given any starter code because one learning objective of this lab is for you to set up your own React project from scratch using `create-react-app`.
 
+You access the empty lab starter folder here(it only has a README):
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4A-Starter
+
 ## Lab Solution
 
 You can view the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4A-Solution
