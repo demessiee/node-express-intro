@@ -46,13 +46,13 @@ With continuous integration, developers frequently commit to a shared repository
 
 Continuous delivery is a software development practice where code changes are automatically prepared for a release to production. Continuous delivery expands upon continuous integration by deploying all code changes to a testing environment and/or a production environment after the build stage. When properly implemented, developers will always have a deployment-ready build artifact that has passed through a standardized test process. 
 
-Continuous delivery lets developers automate testing beyond just unit tests so they can verify application updates across multiple dimensions before deploying to customers. These tests may include UI testing, load testing, integration testing, API reliability testing, etc. This helps developers more thoroughly validate updates and pre-emptively discover issues. With the cloud, it is easy and cost-effective to automate the creation and replication of multiple environments for testing, which was previously difficult to do on-premises.
+Continuous delivery lets developers automate testing beyond just unit tests so they can verify application updates across multiple dimensions before deploying to customers. These tests may include UI testing, load testing, integration testing, API reliability testing, etc. This helps developers more thoroughly validate updates and preemptively discover issues. With the cloud, it is easy and cost-effective to automate the creation and replication of multiple environments for testing, which was previously difficult to do on-premises.
 
 ## Continuous Delivery vs Continuous Deployment
 
 With continuous delivery, every code change is built, tested, and then pushed to a non-production testing or staging environment. There can be multiple, parallel test stages before a production deployment. The difference between continuous delivery and continuous deployment is the presence of a manual approval to update to production. With continuous deployment, production happens automatically without explicit approval. 
 
-Just because a build passed the staging environment does not mean that it always work in production. To ensure a successful deployment to production. Continuous Deployment proccesses may use deployment patterns such blue-green deployments to stagger their deployment release across server instances.
+Just because a build passed the staging environment does not mean that it always work in production. To ensure a successful deployment to production. Continuous Deployment processes may use deployment patterns such blue-green deployments to stagger their deployment release across server instances.
 
 ### Deployment patterns
 
@@ -64,7 +64,7 @@ Similar to rolling deployments, Canary deployments starts off by replacing a sma
 
 ### Blue Green Deployment ( also known as red black or A/B)
 
-Blue Green deployment is when an entirely new server group is created with new server instances that have the latest build. This new server group is run in parallel with the old server group. Traffic is slowly transfered from the old server group to the new server group.
+Blue Green deployment is when an entirely new server group is created with new server instances that have the latest build. This new server group is run in parallel with the old server group. Traffic is slowly transferred from the old server group to the new server group.
 
 The old server group can be called the blue environment while the new server group can be known as the green environment. Once production traffic is fully transferred from blue to green, the blue server group can remain idle in case of rollback or be pulled from production.
 

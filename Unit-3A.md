@@ -1,6 +1,6 @@
 # Unit 3-A Lecture:
 
-In this lecture we will cover:
+In this lecture, we will cover:
 * Testing Code Jest
 * Testing Async Code with Jest
 * Setup and Teardown before Testing with Jest
@@ -23,7 +23,7 @@ https://jestjs.io/docs/en/getting-started
 
 ## Basic Jest Usage
 
-Lets create a new project and add Jest as a dependency:
+Let's create a new project and add Jest as a dependency:
 
 ```
 mkdir unit3E-lecture
@@ -42,7 +42,7 @@ function sum(a, b) {
 module.exports = sum;
 ```
 
-Next, lets create a folder named `/tests` in our project root and add in a file named sum.test.js that will hold our actual test. 
+Next, let's create a folder named `/tests` in our project root and add in a file named sum.test.js that will hold our actual test. 
 
 **Best Practice:** By convention, all test files should be in the test folder and end in .test.js.
 
@@ -59,7 +59,7 @@ test('adds 2 + 5 to equal y', () => {
 });
 ```
 
-In our sum.test.js file, the test() function takes in two arguments: the first is a string to name our test, and the second is a callback to run our specific test. Within the test callback, an expression is passed into expect(), and .toBe() is used to compare the expression in expect() with the value passed in toBe(). If they are equal the test pasts, otherwise the test will fail. You can have multiple tests within one .test.js file.
+In our sum.test.js file, the test() function takes in two arguments: the first is a string to name our test, and the second is a callback to run our specific test. Within the test callback, an expression is passed into expect(), and .toBe() is used to compare the expression in expect() with the value passed in toBe(). If they are equal, the test passes, otherwise the test will fail. You can have multiple tests within one .test.js file.
 
 
 Next, in the scripts section of your `package.json` file, add in the following test script:
@@ -117,7 +117,7 @@ test('two plus two', () => {
 });
 ```
 
-Multiple expect and matcher pairs can be used within a test. If any of them fail then the entire test will fail.
+Multiple expect and matcher pairs can be used within a test. If any of them fail, then the entire test will fail.
 
 ### Floating Point Comparisons
 
@@ -137,7 +137,7 @@ You can check if the expectation object is not equal to a matcher function by us
 
 
 ```js
-test('testing not', () => { 
+test('testing not', () => {
   const value = 2 + 2;
   expect(value).not.toBeGreaterThan(5);
   expect(value).not.toBeGreaterThanOrEqual(4.5);
@@ -147,8 +147,8 @@ test('testing not', () => {
   // toBe and toEqual are equivalent for numbers
   expect(value).not.toBe(3);
   expect(value).not.toEqual(5);
-
 });
+
 ```
 
 ### Object and ArrayComparisons
@@ -157,16 +157,15 @@ To compare properties of an object on array, you can use the toEqual() method an
 
 ```js
 test('object assignment', () => {
-  const data = {one: 1};
+  const data = { one: 1 };
   data['two'] = 2;
-  expect(data).toEqual({one: 1, two: 2});
+  expect(data).toEqual({ one: 1, two: 2 });
 });
-
 
 test('array comparison', () => {
-
-  expect(['a','b','c','d']).toEqual(['a','b','c','d']);
+  expect(['a', 'b', 'c', 'd']).toEqual(['a', 'b', 'c', 'd']);
 });
+
 ```
 
 
@@ -270,7 +269,7 @@ D. When you need to compare floating point numbers
 
 ## Testing Asynchronous Code
 
-It's common in JavaScript for code to run asynchronously. When you have code that runs asynchronously, Jest needs to know when the code it is testing has completed, before it can move on to another test. Jest has several ways to handle this.
+It's common in JavaScript for code to run asynchronously. When you have code that runs asynchronously, Jest needs to know when the code it is testing has completed before it can move on to another test. Jest has several ways to handle this.
 
 
 ### Callbacks
@@ -298,7 +297,7 @@ The problem is that the test will complete as soon as fetchData completes, befor
 There is an alternate form of test that fixes this. Instead of putting the test in a function with an empty argument, use a single argument called `done`. Jest will wait until the `done` callback is called before finishing the test:
 
 ```js
-test('the data is peanut butter', done => {
+test('the data is peanut butter', (done) => {
   function callback(data) {
     try {
       expect(data).toBe('peanut butter');
@@ -310,6 +309,7 @@ test('the data is peanut butter', done => {
 
   fetchData(callback);
 });
+
 ```
 
 If `done()` is never called, the test will fail (with timeout error), which is what you want to happen.
@@ -324,10 +324,11 @@ For example, let's say that `fetchData`, instead of using a callback, returns a 
 
 ```js
 test('the data is peanut butter', () => {
-  return fetchData().then(data => {
+  return fetchData().then((data) => {
     expect(data).toBe('peanut butter');
   });
 });
+
 ```
 
 Be sure to `return` the promise - if you omit this return statement, your test will complete before the promise returned from `fetchData` resolves and then() has a chance to execute the callback.
@@ -338,8 +339,9 @@ If you expect a promise to be rejected, use the `.catch` method. Make sure to ad
 ```js
 test('the fetch fails with an error', () => {
   expect.assertions(1);
-  return fetchData().catch(e => expect(e).toMatch('error'));
+  return fetchData().catch((e) => expect(e).toMatch('error'));
 });
+
 ```
 
 **Additional Context:** Assertions refers to the number of expect() calls that were run. A fulfilled promise would skip the catch() statement and thus skip the expect() assertion.
@@ -620,7 +622,7 @@ If you have a test that often fails when it's run as part of a larger suite, but
 
 ## Lab Overview
 
-For this lab, you will be writing test cases for the utility functions and asychronous functions you created back in the first and third lab. We are writing tests for these functions because our server doesnt have any logic to test besides CRUD operations to the database. 
+For this lab, you will be writing test cases for the utility functions and asynchronous functions you created back in the first and third lab. We are writing tests for these functions because our server doesn't have any logic to test besides CRUD operations to the database. 
 
 For this lab, you should create one `describe()` block per utility function and add as many tests() as you think are necessary.
 
