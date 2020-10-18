@@ -203,7 +203,7 @@ D. .jwt()
 
 ## Bcrypt
 
-Bcrypt is a third party node module that lets you salt your password. Salting is when you encrypt your password by combining your password with some random salt data and then hashing the entire sult.
+Bcrypt is a third party node module that lets you salt your password. Salting is when you encrypt your password by combining your password with some random salt data and then hashing the entire result.
 
 **Best Practice:** It is a good practice to salt your passwords, otherwise if your database is compromised all of your user's passwords will be exposed in plain text.
 
