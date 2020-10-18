@@ -1198,6 +1198,12 @@ The `/*` is a wild card that makes the endpoint serve on all URL routes. Make su
 
 ## Lab Overview
 
+You will use Material UI and React Router to build a multi-paged React application.
+
+You should use the following Material UI components:
+* NavBar
+* Card
+
 ## Lab Starter Code
 
 ## Lab Solution

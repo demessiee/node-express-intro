@@ -595,6 +595,25 @@ This will center all of the child components towards the center of the page.
 To read up some more on flexbox:
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
+### Colors
+
+The color changing attributes in CSS can be used with either color names or hex codes:
+```css
+.flexbox {
+  color:"red";
+  background-color:"blue";
+}
+```
+
+```css
+.flexbox {
+  color:"#ff4081";
+  background-color:"#448aff";
+}
+```
+
+Here's a useful tool to help pick CSS colors for you app.
+https://material.io/resources/color/#!/?view.left=0&view.right=0
 
 ## JSX
 
