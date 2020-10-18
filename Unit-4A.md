@@ -567,6 +567,35 @@ A. True
 B. False
 ```
 
+### Flexbox
+
+The CSS flexbox makes it extremely easy to layout items horizontally or in a grid.
+To use a flexbox, you need to have a container element that will hold the rest of your items.
+
+You can make a container element a flexbox by applying the following CSS:
+
+```css
+.flexbox {
+  display:"flex";
+  flex-wrap:"wrap";
+}
+```
+Then all of the child elements will be arranged horizontally. If they reach the end of the container width, they will wrap around and make a grid.
+
+The flexbox is also useful if you want to center some content:
+
+```css
+.flexbox {
+  display:"flex";
+  justify-content:"center"
+}
+```
+This will center all of the child components towards the center of the page.
+
+To read up some more on flexbox:
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
 ## JSX
 
 JSX is a syntax extension to JavaScript that allows React Elements to be written inside JavaScript using HTML tags.

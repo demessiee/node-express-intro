@@ -46,7 +46,7 @@ Each collection is associated with one MongoDB database.
 
 ### Installing MongoDB
 
-**Note:** For this class, we will be using an online MongoDB instance, so you won't need to download MongoDB locally. You can still install it locally if you wish to.
+**Note:** For this class, we will be using an online MongoDB instance, so you won't need to download MongoDB locally. You can still install it locally if you wish to. You all have MongoDB accounts created with your own database to play with. All of the code examples in the lectures and labs use a localhost mongoDB connection string. Unless you are also using MongoDB locally, you must replace that string with your online MongoDB instance string for the code samples to work.
 
 It is recommended to download MongoDB with homebrew.
 
@@ -124,7 +124,7 @@ To use Compass, simply pass in a connection URI such as `mongodb://localhost:270
 You will have been provided a cloud hosted instance of MongodB for this class. You can connect to it with compass by doing the following:
 
 1. Paste your database connection string into Compass
-2. Add ?authSource=database0 to the end of the database string (change database0 to whatever your assigned database is)
+2. If its not there already, add ?authSource=database0 to the end of the database string (change database0 to whatever your assigned database is)
 
 We have to add this extra string because Compass assumes that the authSource is admin by default, which won't work since you don't have permissions on the admin database.
 
@@ -335,7 +335,7 @@ const mongoose = require('mongoose');
 
 After that, you can initiate a database connection by using:
 ```js
-mongoose.connect('mongodb://localhost:27017/my_database');
+mongoose.connect('mongodb://localhost:27017/test');
 
 ```
 
@@ -348,7 +348,7 @@ Here is some basic code to connect to a mongoDB instance and insert a new docume
 
 const mongoose = require('mongoose'); //1. import mongoose module
 
-mongoose.connect('mongodb://localhost:27017/items'); //2. connect to mongoDB instance, with database specified
+mongoose.connect('mongodb://localhost:27017/items'); //2. connect to mongoDB instance using database connection string, with database specified. (replace this with your own database connection string)
 
 const { Schema } = mongoose; // 3. load Schema constructor function from mongoose module
 
@@ -374,35 +374,6 @@ item.save((error) => {
     console.log(documents); //9. the item we just saved should be among the results
   });
 });
-const mongoose = require('mongoose'); //1. import mongoose module
-
-mongoose.connect('mongodb://localhost:27017/items'); //2. connect to mongoDB instance, with database specified
-
-const { Schema } = mongoose; // 3. load Schema constructor function from mongoose module
-
-const itemSchema = new Schema({
-  //4. define schema for an Item document
-  name: String,
-  price: Number,
-});
-
-const Item = mongoose.model('Item', itemSchema); //5. Create an Item constructor using the Item Schema
-
-const item = new Item({ name: 'Watermelon2', price: 5.55 }); //6. create a new Item instance using the Item constructor
-
-item.save((error) => {
-  //7. insert item we just created into mongoDB, update if the _id already exists
-  if (error) {
-    return console.log(`Error has occurred: ${error}`);
-  }
-  console.log('Document is successfully saved.');
-
-  Item.find({}, function (error, documents) {
-    //8. query for all Item documents in the Item collection
-    console.log(documents); //9. the item we just saved should be among the results
-  });
-});
-
 
 ```
 
@@ -615,7 +586,7 @@ const app = express();
 const port = 3000;
 
 mongoose
-  .connect('mongodb://localhost:27017/my_database', { useNewUrlParser: true })
+  .connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
   .then(() => {
     const { Schema } = mongoose;
 
@@ -689,7 +660,7 @@ const app = express();
 const port = 3000;
 
 mongoose
-  .connect('mongodb://localhost:27017/my_database', { useNewUrlParser: true })
+  .connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
   .then(() => {
     app.get('/items', async (req, res) => {
       const items = await Item.find(); //Item was imported from our schema file
