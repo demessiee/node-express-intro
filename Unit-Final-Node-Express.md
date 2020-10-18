@@ -205,6 +205,9 @@ Here are some general things to test:
 
 There isn't any starter code for the final project. Use the best practices you've learned to set up your project folder structure.
 
+You can find the empty final project starter folder here(it only has a README):
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-Node-Express-Final-Project-Starter
+
 ## Solution
 
 The solution for the Final Project can be found here:
