@@ -90,7 +90,7 @@ router.put('/employee', async (req, res) => {
     res.json(result)
 })
 
-router.delete('/employee', async (req, res) => {
+router.delete('/employee/id/:id', async (req, res) => {
     if(req.params.id === null)
         res.status(400).send("id not found")
 
