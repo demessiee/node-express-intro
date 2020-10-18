@@ -36,7 +36,7 @@ Candidates
 * PUT /candidates/candidate - updates candidate with specified body
 * DELETE /candidates/candidate/:id - deletes candidate with specified id
 * GET /candidates/candidate/:id/jobs - gets a list of all jobs applied to by candidate with specified id
-* POST /candidates/login - authenticates a candidates's credentials and then sends a JWT token if successful
+* POST /candidates/login - authenticates a candidate's credentials and then sends a JWT token if successful
 
 Jobs
 * GET /jobs/ - sends a list of all jobs
@@ -92,7 +92,7 @@ Jobs
 Separate JWT tokens will be given out to Candidates who log in and Companies who log in. 
 
 For Candidates:
-* The JWT should encode the candidates email
+* The JWT should encode the candidate's email
 For Companies:
 * the JWT should encode the companies company_name
 
@@ -109,7 +109,7 @@ The following endpoints should be accessible without any JWT authorization:
 * GET /candidates/ - sends a list of all candidates
 * GET /candidates/candidate/:id - sends candidate with specified id
 * POST /candidates/candidate - inserts candidate with specified body
-* POST /candidates/login - authenticates a candidates's credentials and then sends a JWT token if successful
+* POST /candidates/login - authenticates a candidate's credentials and then sends a JWT token if successful
 
 
 * GET /jobs/ - sends a list of all jobs
@@ -142,7 +142,7 @@ Only Companies that have the same id encoded in their JWT as the job's company_i
 
 ### Utility Functions
 
-In all our previous examples, we combined our business logic with our server logic in our endpoints. That was okay because there wasn't much business logic since we were mostly making CRUD commands to our database. With more complex codebases, it is important to separate out the business logic from the server logic because it makes it easier to reuse and test business logic.
+In all our previous examples, we combined our business logic with our server logic in our endpoints. That was okay because there wasn't much business logic since we were mostly making CRUD commands to our database. With more complex codebases, it is important to separate the business logic from the server logic because it makes it easier to reuse and test business logic.
 
 Create the following functions utility functions and import them into your endpoints as needed:
 
@@ -152,29 +152,27 @@ Create the following functions utility functions and import them into your endpo
     Input: jobList //contains a list of job objects that the function will reference
     Output: Returns a list of all jobs within jobList that was applied to by the candidate (include the full job object schema)
 /****/
-function getAppliedJobs(candidateId,jobList){
-//used to assist GET /candidates/candidate/:id/jobs 
-
+function getAppliedJobs(candidateId, jobList) {
+  //used to assist GET /candidates/candidate/:id/jobs
 }
 
 /* Function: searchJobs
     Input: searchQuery(String) //contains the search query the function will search for
     Input: jobList //contains a list of job objects that the function will reference
-    Output: Returns a list of all jobs within jobList that contain the search query within the title, company name or skills list
+    Output: Returns a list of all jobs within jobList that contain the search query within the title, company name, or skills list
 /****/
-function searchJobs(searchQuery){
-//used to assist GET /jobs/search/:search
-
+function searchJobs(searchQuery) {
+  //used to assist GET /jobs/search/:search
 }
+
 
 /* Function: filterCandidate
     Input: candidate //contains a candidate object that the function will reference
     Input: job //contains a job object that the function will reference
     Output: Returns a new job object with the candidate id added to the end of the job object's candidate list. If the candidate has the required years of experience or more and has all of the required skills in the job object's skill list, then add the candidate id to the end of the job object's qualified list.
 /****/
-function filterCandidate(candidate,searchQuery){
+function filterCandidate(candidate, searchQuery){
 //used to assist PUT /jobs/job/:id/apply/:candidateId 
-
 }
 
 ```
@@ -187,7 +185,7 @@ Write unit tests for all the utility functions that you created using Jest.
 
 ### Verifying that your API is working correctly
 
-Manually test your API to ensure that is working.
+Manually test your API to ensure that it is working.
 
 Here are some general things to test:
 * Create a couple of Company accounts and Candidate accounts
