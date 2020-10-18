@@ -381,7 +381,7 @@ Here's whats going on in the above code:
 8. In the callback of .save() we now to a query on all Item documents with Item.find() 
 9. The item we inserted should show up in the results
 
-**Best Practice**: There are many mongoose methods to update or insert documents, such as update() and insert(), however it is a best practice to use `save()` instead when doing any inserting or updating because it has additional validation middleware that the other mongoose functions do not have.
+**Best Practice**: There are many mongoose methods to update or insert documents, such as update() and insert(), however it is a best practice to use `save()` instead when doing any inserting or updating because it has additional validation middleware that the other mongoose functions do not have. If you save() a document that doesnt exist, it will insert it. If you try to save() to insert a new document whose _id already exists, it won't insert it. If you query an existing document with find() or findOne() and then modify it and save() it, it will update the document.
 
 
 ## Knowledge Check 2
