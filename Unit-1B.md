@@ -652,14 +652,12 @@ diff updated_employee_data_solution.csv updated_employee_data.csv
 Part of the lab learning objectives is to launch your project from scratch with `npm init` and install all the necessary dependencies with `npm install`.
 
 You can get the `employee_data.csv` file here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1B-Starter
 
 ## Lab Solution
 
 You can view the lab solution here:
-[LINK]
-
-
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1B-Solution
 
 # Knowledge Check Answers
 

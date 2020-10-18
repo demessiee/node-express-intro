@@ -699,7 +699,9 @@ Lastly, your MongoDB database won't have all of the employee data so you will ne
 Your lab for Unit 2B will start off where your lab for unit 2A ended. 
 
 You can clone your starter code here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2B-Starter
+
+**Note:** Make sure to swap the MongoDB database connecting string in `index.js` with your own cloud MongoDB instance's connection string.
 
 Make sure to install all of the dependencies with:
 ```
@@ -734,7 +736,10 @@ If you need a fresh `employee_data.json` file at any point you can copy over the
 ## Lab Solution
 
 You can find the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2B-Solution
+
+**Note:** Make sure to swap the MongoDB database connecting string in `index.js` with your own cloud MongoDB instance's connection string if you test out the solution.
+
 
 # Knowledge Check Answers
 

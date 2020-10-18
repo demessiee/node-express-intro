@@ -295,12 +295,11 @@ node index.js
 ```
 
 You can clone the starter code here:
-[LINK]
-
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1D-Starter
 ## Lab Solution
 
 You can get the solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1D-Solution
 
 # Knowledge Check Answers
 

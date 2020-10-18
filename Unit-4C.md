@@ -930,7 +930,9 @@ You will be given a copy of the solution from Lab 2B, but it will be modified to
 You will also be given some starter React code that does a GET request from the server, stores the result in a state variable and displays the total number of employees.
 
 You can access the starter code files here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4C-Starter
+
+**Note:** Make sure to swap the MongoDB database connecting string in the `index.js` file of your server folder with your own cloud MongoDB instance's connection string.
 
 Be sure to install all the dependencies in both the server folder and the client folder. Also, run the server before you start the client.
 
@@ -959,7 +961,9 @@ $ npm start
 
 ## Lab Solution
 You can view the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4C-Solution
+
+**Note:** Make sure to swap the MongoDB database connecting string in the `index.js` file of your server folder with your own cloud MongoDB instance's connection string if you test out the solution.
 
 # Knowledge Check Answers
 

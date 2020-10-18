@@ -646,8 +646,9 @@ There will be test cases already set up to verify that your functions are return
 ## Lab Starter Code
 You will be given a starter node.js project that has `jest`, `axios`, and `node-fetch` installed. There will be some function definitions in `src/starwars.js` that you will need to fill out. Your test cases are located in `tests/app.test.js`
 
-You can get the starter code here
-[Link]
+You can get the starter code here:
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1C-Starter
+
 To test out your lab, first, download all the lab dependencies with:
 
 ```
@@ -678,8 +679,7 @@ Ran all test suites.
 ## Lab Solution
 
 You can view the lab solution here:
-[LINK]
-
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1C-Solution
 
 # Knowledge Check Answers
 

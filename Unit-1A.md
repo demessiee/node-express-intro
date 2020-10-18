@@ -1019,7 +1019,7 @@ To complete the lab:
 ## Lab Starter Code
 
 The Lab starter code can be cloned here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1A-Starter
 
 The utility module will be in `/src/util.js`.
 
@@ -1064,8 +1064,7 @@ Ran all test suites.
 ## Lab Solution
 
 The lab solution can be found here:
-[LINK]
-
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-1A-Solution
 
 
 

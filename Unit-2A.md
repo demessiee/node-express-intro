@@ -604,7 +604,7 @@ Here are the default values you should use if any of the body properties are mis
 Your lab for Unit 2A will start off where your lab for unit 1D ended off. If you need a fresh copy of employee_data.json there is a master copy you can copy into your employee_data.json file.
 
 You can clone your starter code here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2A-Starter
 
 Make sure to install all of the dependencies with:
 ```
@@ -622,7 +622,8 @@ Test your solution with the Advanced REST Client to verify that all your endpoin
 ## Lab Solution
 
 You can find the lab solution here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-2A-Solution
+
 # Knowledge Check Answers
 
 ## Knowledge Check 1

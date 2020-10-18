@@ -1054,7 +1054,7 @@ You can also use different hosting solutions for each of them. For example, the 
 
 Another way to combine React and Node.js is to run create-react-app within an Express application folder. This will create a React project directory with all of the create-react-app build tools. Then, when you run your server start script, you can add a step to create a production build for your React app. You can specify your entire build folder to be statically served by Express. Then you just need to have an express endpoint that points to index.html in the build folder that has all your React components embedded.
 
-This approach allows you to keep your front end and backend code all in one codebase. You can also host them both on the same container.
+This approach allows you to keep your front end and backend code all in one codebase, allowing them to share logic as well as React components if you are doing any server side rendering. You can also host them both on the same container. The main drawback is that all shut off your front end, you are also shutting off your server and vice versa.
 
 Here are the step by step instructions:
 1. Create a new project directory and cd into it

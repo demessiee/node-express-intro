@@ -327,7 +327,9 @@ This section `No tests found, exiting with code 1` indicates that the stage fail
 To fix this, lets move all of the source files from our project in Lab 3A, which should have a bunch of test cases. This also lets us test to see if our Express project will pass the CircleCI pipeline stages.
 
 You can access the solution for Lab 3A here:
-//TODO 
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-3A-Solution
+
+**Note:** Make sure to swap the MongoDB database connecting string in `index.js` with your own cloud MongoDB instance's connection string.
 
 Make sure not to accidentally remove the `.circleci/config.yml` file. You don't need to move node_modules into the repo, as we will rebuild it.
 
