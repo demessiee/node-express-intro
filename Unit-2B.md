@@ -46,6 +46,7 @@ Each collection is associated with one MongoDB database.
 
 ### Installing MongoDB
 
+**Note:** For this class, we will be using an online MongoDB instance, so you won't need to download MongoDB locally. You can still install it locally if you wish to.
 
 It is recommended to download MongoDB with homebrew.
 
@@ -93,15 +94,45 @@ Now that you've started the mongoDB service, you can access the mongo shell with
 mongo
 ```
 
+## Mongo Compass
+
+Compass is a MongoDB Client GUI created by the creators of MongoDB. It allows you to view your MongoDB in a graphical interface and view all of your collections and documents. You can also alter MongoDB documents within the Compass client, and all changes you make will be saved.
+
+![mongo-compass](./images/mongo-compass.png)
+
+You can install it with homebrew:
+
+```
+$ brew cask install mongodb-compass 
+```
+
+Or download it from the official site:
+https://docs.mongodb.com/compass/master/install/#
+
+
+You should now have a new application on your computer named MongoDB Compass.
+
+If you receive a security error when starting Compass indicating that the developer could not be identified or verified, perform the following actions to allow Compass to run:
+
+* Open System Preferences.
+* Select the Security and Privacy pane.
+* Under the General tab, click the button to the right of the message about Compass, labeled either Open Anyway or Allow Anyway depending on your version of macOS.
+* If necessary, re-open Compass.
+
+To use Compass, simply pass in a connection URI such as `mongodb://localhost:27017/items'` and begin viewing and editing all of your collections and documents.
+
+You will have been provided a cloud hosted instance of MongodB for this class. You can connect to it with compass by doing the following:
+
+1. Paste your database connection string into Compass
+2. Add ?authSource=database0 to the end of the database string (change database0 to whatever your assigned database is)
+
+We have to add this extra string because Compass assumes that the authSource is admin by default, which won't work since you don't have permissions on the admin database.
+
 ## Mongo Shell
 
-Try running the Mongo Shell with:
+MongoDB Compass comes with a useful shell to interact with MongoDB. You can access the shell by clicking the `> MongoSH beta` panel at the bottom of Compass.
 
-```
-mongo
-```
-
-If done correctly, the command line prompt should switch to a >.
+Alternatively, if you have MongoDB installed locally, you can access to shell by running `mongo`.
 
 To see a list of useful commands, run :
 
@@ -279,32 +310,7 @@ C. Document
 D. Database
 ```
 
-## Mongo Compass
 
-Compass is a MongoDB Client GUI created by the creators of MongoDB. It allows you to view your MongoDB in a graphical interface and view all of your collections and documents. You can also alter MongoDB documents within the Compass client, and all changes you make will be saved.
-
-![mongo-compass](./images/mongo-compass.png)
-
-You can install it with homebrew:
-
-```
-$ brew cask install mongodb-compass 
-```
-
-Or download it from the official site:
-https://docs.mongodb.com/compass/master/install/#
-
-
-You should now have a new application on your computer named MongoDB Compass.
-
-If you receive a security error when starting Compass indicating that the developer could not be identified or verified, perform the following actions to allow Compass to run:
-
-* Open System Preferences.
-* Select the Security and Privacy pane.
-* Under the General tab, click the button to the right of the message about Compass, labeled either Open Anyway or Allow Anyway depending on your version of macOS.
-* If necessary, re-open Compass.
-
-To use Compass, simply pass in a connection URI such as `mongodb://localhost:27017/items'` and begin viewing and editing all of your collections and documents.
 
 ## Connecting MongoDB to Node.js with Mongoose
 
@@ -714,6 +720,8 @@ Your engineering team at ABC Solutions Company has just adopted MongoDB as their
 In addition, you must also use Mongoose schemas to model your employee data. Your code base is starting to get complex, so it is recommended to have Mongoose schemas in their own folder calls `models` and import them as needed.
 
 Lastly, your MongoDB database won't have all of the employee data so you will need to import in the employee data from the JSON file.
+
+**Hint**: When inserting a new employee with POST, just use save(). When updating an existing employee with PUT, first use findOne() then modify the result and then use save(). You can't update an employee with save() without first finding them in the database.
 
 ## Lab Starter Code
 

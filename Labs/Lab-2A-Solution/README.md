@@ -9,6 +9,8 @@ In addition, you must also use Mongoose schemas to model your employee data. You
 
 Lastly, your MongoDB database won't have all of the employee data so you will need to import in the employee data from the JSON file.
 
+**Hint**: When inserting a new employee with POST, just use save(). When updating an existing employee with PUT, first use findOne() then modify the result and then use save(). You can't update an employee with save() without first finding them in the database.
+
 ## Lab Starter Code
 
 Your lab for Unit 2B will start off where your lab for unit 2A ended. 
