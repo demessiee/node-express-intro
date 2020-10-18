@@ -1,6 +1,6 @@
 # Unit 2-B Lecture
 
-In this lecture we will cover:
+In this lecture, we will cover:
 * MongoDB
 * Mongo Shell
 * Connecting Node.js to MongoDB using Mongoose
@@ -22,11 +22,11 @@ MongoDB is a NoSQL Database. Compared to traditional relational databases that u
 
 ### MongoDB Documents
 
-MongoDB stores data as JSON *documents*. A document represents one record, making it anagalous to a row in a relational databse.
+MongoDB stores data as JSON *documents*. A document represents one record, making it analogous to a row in a relational database.
 
 The document data model maps naturally to objects in application code, making it simple for developers to learn and use.
 
-The fields in a JSON document can vary from document to document. Compare that to a traditional relational database table, where adding a field means adding a column to the database table itself and therefore to every record in the database.
+The fields in a JSON document can vary from document to document. Compare that to a traditional relational database table, where adding a field means adding a column to the database table itself and, therefore, to every record in the database.
 
 Documents can be nested to express hierarchical relationships and to store structures such as arrays.
 
@@ -103,7 +103,7 @@ mongo
 
 If done correctly, the command line prompt should switch to a >.
 
-To see a list of useful commands run :
+To see a list of useful commands, run :
 
 ```
 help
@@ -145,11 +145,11 @@ config  0.000GB
 local   0.000GB
 ```
 
-Lets create a new databse named `test` by running:
+Let's create a new database named `test` by running:
 
 ```
 > use test
-switched databsae to test
+switched database to test
 ```
 
 This will switch our active database to `test`. If `test` doesn't exist, MongoDB will create a new database for us.
@@ -163,7 +163,7 @@ test
 ```
 
 
-Now lets see what collections exist within `test`:
+Now let's see what collections exist within `test`:
 
 ```
 > show collections
@@ -176,21 +176,21 @@ No collections showed up, so lets create a collection and insert a document into
 WriteResult({ "nInserted" : 1 })
 ```
 
-Now lets check our collections list again:
+Now let's check our collections list again:
 
 ```
 > show collections
 items
 ```
 
-Next, lets read all the documents that are currently in the `items` collection:
+Next, let's read all the documents that are currently in the `items` collection:
 
 ```
 > db.items.find({})
 { "_id" : 1, "name" : "apple", "price" : 3.5 }
 ```
 
-Next, lets try inserting multiple collections at the same time:
+Next, let's try inserting multiple collections at the same time:
 
 ```
 > db.items.insert([{_id:2, name:"banana",price:2.00},{_id:3, name:"carrot",price:2.75}])
@@ -206,7 +206,7 @@ BulkWriteResult({
 })
 ```
 
-Lets, read the all the documents again within `item`:
+Let's read the all the documents again within `item`:
 ```
 > db.items.find({})
 { "_id" : 1, "name" : "apple", "price" : 3.5 }
@@ -230,7 +230,7 @@ Querying for items who's name is "banana":
 ```
 
 
-Now, lets try updating one of our documents, we can do so by specifing the object _id:
+Now, let's try updating one of our documents, we can do so by specifing the object _id:
 
 ```
 > db.items.update(
@@ -270,7 +270,7 @@ https://docs.mongodb.com/manual/reference/method/
 
 ## Knowledge Check 1
 
-In MongoDB, which of the following is anagalous to a record in a relational database
+In MongoDB, which of the following is analogous to a record in a relational database
 
 ```
 A. MongoRow
@@ -281,7 +281,7 @@ D. Database
 
 ## Mongo Compass
 
-Compass is a MongoDB Client GUI created by the creators of MongoDB. It allows you to view your MongoDB in a graphical interface and view all of your collections and documents. You can also alter MongoDB documents within the Compass client and all changes you make will be saved.
+Compass is a MongoDB Client GUI created by the creators of MongoDB. It allows you to view your MongoDB in a graphical interface and view all of your collections and documents. You can also alter MongoDB documents within the Compass client, and all changes you make will be saved.
 
 ![mongo-compass](./images/mongo-compass.png)
 
@@ -301,14 +301,14 @@ If you receive a security error when starting Compass indicating that the develo
 
 * Open System Preferences.
 * Select the Security and Privacy pane.
-* Under the General tab, click the button to the right of the message about Compass, labelled either Open Anyway or Allow Anyway depending on your version of macOS.
+* Under the General tab, click the button to the right of the message about Compass, labeled either Open Anyway or Allow Anyway depending on your version of macOS.
 * If necessary, re-open Compass.
 
-To use Compass, simply pass in a connnection URI such as `mongodb://localhost:27017/items'` and begin viewing and editing all of your collections and documents.
+To use Compass, simply pass in a connection URI such as `mongodb://localhost:27017/items'` and begin viewing and editing all of your collections and documents.
 
 ## Connecting MongoDB to Node.js with Mongoose
 
-There are several third party modules that allow us to read and write to a mongoDB database with Node.js code.
+There are several third-party modules that allow us to read and write to a mongoDB database with Node.js code.
 
 Although MongoDB comes with its own module for connecting to Node.js, we will be using the Mongoose module to do so instead because it is easier to use and has additional features to model schemas.
 
@@ -323,13 +323,14 @@ $ npm install mongoose
 To import Mongoose into your code, use require():
 
 ```js
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 ```
 
 After that, you can initiate a database connection by using:
 ```js
 mongoose.connect('mongodb://localhost:27017/my_database');
+
 ```
 
 
@@ -339,34 +340,63 @@ Here is some basic code to connect to a mongoDB instance and insert a new docume
 
 ```js
 
-const mongoose = require('mongoose') //1. import mongoose module
+const mongoose = require('mongoose'); //1. import mongoose module
 
 mongoose.connect('mongodb://localhost:27017/items'); //2. connect to mongoDB instance, with database specified
 
 const { Schema } = mongoose; // 3. load Schema constructor function from mongoose module
 
-const itemSchema = new Schema({ //4. define schema for an Item document
+const itemSchema = new Schema({
+  //4. define schema for an Item document
   name: String,
   price: Number,
 });
-
 
 const Item = mongoose.model('Item', itemSchema); //5. Create an Item constructor using the Item Schema
 
 const item = new Item({ name: 'Watermelon2', price: 5.55 }); //6. create a new Item instance using the Item constructor
 
-
-item.save((error) => { //7. insert item we just created into mongoDB, update if the _id already exists
+item.save((error) => {
+  //7. insert item we just created into mongoDB, update if the _id already exists
   if (error) {
     return console.log(`Error has occurred: ${error}`);
   }
   console.log('Document is successfully saved.');
 
-
-  Item.find({}, function (error, documents) { //8. query for all Item documents in the Item collection
+  Item.find({}, function (error, documents) {
+    //8. query for all Item documents in the Item collection
     console.log(documents); //9. the item we just saved should be among the results
   });
 });
+const mongoose = require('mongoose'); //1. import mongoose module
+
+mongoose.connect('mongodb://localhost:27017/items'); //2. connect to mongoDB instance, with database specified
+
+const { Schema } = mongoose; // 3. load Schema constructor function from mongoose module
+
+const itemSchema = new Schema({
+  //4. define schema for an Item document
+  name: String,
+  price: Number,
+});
+
+const Item = mongoose.model('Item', itemSchema); //5. Create an Item constructor using the Item Schema
+
+const item = new Item({ name: 'Watermelon2', price: 5.55 }); //6. create a new Item instance using the Item constructor
+
+item.save((error) => {
+  //7. insert item we just created into mongoDB, update if the _id already exists
+  if (error) {
+    return console.log(`Error has occurred: ${error}`);
+  }
+  console.log('Document is successfully saved.');
+
+  Item.find({}, function (error, documents) {
+    //8. query for all Item documents in the Item collection
+    console.log(documents); //9. the item we just saved should be among the results
+  });
+});
+
 
 ```
 
@@ -381,7 +411,7 @@ Here's whats going on in the above code:
 8. In the callback of .save() we now to a query on all Item documents with Item.find() 
 9. The item we inserted should show up in the results
 
-**Best Practice**: There are many mongoose methods to update or insert documents, such as update() and insert(), however it is a best practice to use `save()` instead when doing any inserting or updating because it has additional validation middleware that the other mongoose functions do not have. If you save() a document that doesnt exist, it will insert it. If you try to save() to insert a new document whose _id already exists, it won't insert it. If you query an existing document with find() or findOne() and then modify it and save() it, it will update the document.
+**Best Practice**: There are many mongoose methods to update or insert documents, such as update() and insert(); however, it is a best practice to use `save()` instead when doing any inserting or updating because it has additional validation middleware that the other mongoose functions do not have. If you save() a document that doesn't exist, it will insert it. If you try to save() to insert a new document whose _id already exists, it won't insert it. If you query an existing document with find() or findOne() and then modify it and save() it, it will update the document.
 
 
 ## Knowledge Check 2
@@ -412,18 +442,18 @@ The following SchemaTypes are permitted in mongoose:
 * mongoose.Decimal128
 * Map
 
-In general you create a new Schema by using the Schema constructor from the mongoose module and then provide key values pairs of the document attribute names and their SchemaTypes:
+In general, you create a new Schema by using the Schema constructor from the mongoose module and then provide key values pairs of the document attribute names and their SchemaTypes:
 
 ```js
-const { Schema } = mongoose; 
+const { Schema } = mongoose;
 
 const schema = new Schema({
-  name:    String,
-  binary:  Buffer,
-  living:  Boolean,
+  name: String,
+  binary: Buffer,
+  living: Boolean,
   updated: { type: Date, default: Date.now },
-  age:     { type: Number, min: 18, max: 65 },
-  mixed:   Schema.Types.Mixed,
+  age: { type: Number, min: 18, max: 65 },
+  mixed: Schema.Types.Mixed,
   _someId: Schema.Types.ObjectId,
   decimal: Schema.Types.Decimal128,
   array: [],
@@ -437,14 +467,15 @@ const schema = new Schema({
   ofArrays: [[]],
   ofArrayOfNumbers: [[Number]],
   nested: {
-    stuff: { type: String, lowercase: true, trim: true }
+    stuff: { type: String, lowercase: true, trim: true },
   },
   map: Map,
   mapOfString: {
     type: Map,
-    of: String
-  }
-})
+    of: String,
+  },
+});
+
 ```
 
 
@@ -459,43 +490,44 @@ const ToyListSchema = new Schema({
   toys: [ToySchema],
   buffers: [Buffer],
   strings: [String],
-  numbers: [Number]
-  other: []
+  numbers: [Number],
+  other: [],
   // ... etc
 });
 
 ```
 
-If you leave the array empty, or use Array or 'Array', the SchemaType will be treated as a Mixed schematype.
+If you leave the array empty or use Array or 'Array', the SchemaType will be treated as a Mixed SchemaType.
 
 ### Document constructors
 
 Once a schema is defined, it can be turned into a `document constructor` using the Mongoose.model() function:
 
 ```js
-const { Schema } = mongoose; 
+const { Schema } = mongoose;
 
-const itemSchema = new Schema({ 
-    name: String,
-    price: Number,
+const itemSchema = new Schema({
+  name: String,
+  price: Number,
 });
 
-const Item = mongoose.model('Item', itemSchema);  //mongoose.model turns schema definitions into document constructors and also connects documents created with those document constructors to a specific database collection
+const Item = mongoose.model('Item', itemSchema); //mongoose.model turns schema definitions into document constructors and also connects documents created with those document constructors to a specific database collection
 
-//Item will be a part of the Items collection. In general the schema model name is the singular of the collection name
-Item.find({}).then( doc => console.log(doc)) //search for all documents with the Item schema definition
+//Item will be a part of the Items collection. In general, the schema model name is the singular of the collection name
+Item.find({}).then((doc) => console.log(doc)); //search for all documents with the Item schema definition
 
 const item = new Item({
-  name:"squash",
-  price:5.25
-})
+  name: 'squash',
+  price: 5.25,
+});
 
-item.save() //save the document instance to the Items collection
+item.save(); //save the document instance to the Items collection
+
 ```
 
-`Document constructors` come with additional methods to query for or modify documents of the same schema definition such as `Item.find()` and `Item.delete()`.
+`Document constructors` come with additional methods to query for or modify documents of the same schema definition, such as `Item.find()` and `Item.delete()`.
 
-**Additional Context:** The string passed to `mongoose.model()` will associate the schema model with a collection that is the plural of the string provided according to English grammar laws. (e.g. Item will be apart of the Items collection, Mouse will be apart of the Mice collection...)
+**Additional Context:** The string passed to `mongoose.model()` will associate the schema model with a collection that is the plural of the string provided according to English grammar laws. (e.g., Item will be apart of the Items collection, Mouse will be apart of the Mice collection...)
 
 Objects created with `document constructors` become `document instances` and come with additional methods to save them to the database such as `item.save()`.
 
@@ -512,9 +544,9 @@ You can provide default values for your document attributes in your schema decla
 
 ```js
 const studentSchema = new Schema({
-    name: { type: String, default: "N/A" },
-    date: { type: Date, default: Date.now }
-})
+  name: { type: String, default: 'N/A' },
+  date: { type: Date, default: Date.now },
+});
 
 ```
 
@@ -522,8 +554,8 @@ You can also provide acceptable ranges for your schema values:
 
 ```js
 const studentSchema = new Schema({
-    age: { type: Number, min: 18, max: 65 },
-})
+  age: { type: Number, min: 18, max: 65 },
+});
 
 ```
 
@@ -534,16 +566,19 @@ When you try to .save() a value with Mongoose, the SchemaTypes will try to cast 
 
 For example, if you use a String when the schema is a Number:
 ```js
-const item = new Item({ _id: "not a number", name: 'Watermelon2', price: "not an number" }); 
+const item = new Item({
+  _id: 'not a number',
+  name: 'Watermelon2',
+  price: 'not an number',
+});
 
-item.save((error) => { 
+item.save((error) => {
   if (error) {
     return console.log(`Error has occurred: ${error}`);
   }
   console.log('Document is successfully saved.');
-
-
 });
+
 ```
 You'll get an error similar to this:
 ```
@@ -568,40 +603,39 @@ Here is some basic code to connect to MongoDB with mongoose so that we can read 
 
 ```js
 //index.js
-const express = require('express')
-const mongoose = require('mongoose')
-const app = express()
-const port = 3000
+const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+const port = 3000;
 
-mongoose.connect('mongodb://localhost:27017/my_database',{ useNewUrlParser: true }).then( () => {
+mongoose
+  .connect('mongodb://localhost:27017/my_database', { useNewUrlParser: true })
+  .then(() => {
+    const { Schema } = mongoose;
 
-    const { Schema } = mongoose; 
-
-    const itemSchema = new Schema({ 
-        name: String,
-        price: Number,
+    const itemSchema = new Schema({
+      name: String,
+      price: Number,
     });
 
-    const Item = mongoose.model('Item', itemSchema);  //Item will be a part of the Items collection. In general the Model name is the singular of the collection name
+    const Item = mongoose.model('Item', itemSchema); //Item will be a part of the Items collection. In general, the Model name is the singular of the collection name
 
     app.get('/items', async (req, res) => {
-      const items = await Item.find()
-      res.json(items)  
-    })
+      const items = await Item.find();
+      res.json(items);
+    });
 
     app.post('/item', async (req, res) => {
-      let item = new Item({name:req.body.name,price:req.body.price})
-      const result = await item.save()
-      res.json(result)  
-    })
-
-
+      let item = new Item({ name: req.body.name, price: req.body.price });
+      const result = await item.save();
+      res.json(result);
+    });
 
     app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-    })
+      console.log(`Example app listening at http://localhost:${port}`);
+    });
+  });
 
-});
 
 
 ```
@@ -622,18 +656,19 @@ In this code example, we had all of our Schemas in the same file as our endpoint
 We could have our Item schema stored in models/item.js:
 ```js
 //models/item.js
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const { Schema } = mongoose; 
+const { Schema } = mongoose;
 
-const itemSchema = new Schema({ 
-    name: String,
-    price: Number,
+const itemSchema = new Schema({
+  name: String,
+  price: Number,
 });
 
-const Item = mongoose.model('Item', itemSchema); 
+const Item = mongoose.model('Item', itemSchema);
 
-module.exports = Item
+module.exports = Item;
+
 ```
 
 
@@ -641,33 +676,30 @@ And then import it into our router logic:
 
 ```js
 //index.js
-const express = require('express')
-const mongoose = require('mongoose')
-const Item = require('./models/item.js')
-const app = express()
-const port = 3000
+const express = require('express');
+const mongoose = require('mongoose');
+const Item = require('./models/item.js');
+const app = express();
+const port = 3000;
 
-mongoose.connect('mongodb://localhost:27017/my_database',{ useNewUrlParser: true }).then( () => {
-
-
-
+mongoose
+  .connect('mongodb://localhost:27017/my_database', { useNewUrlParser: true })
+  .then(() => {
     app.get('/items', async (req, res) => {
-      const items = await Item.find() //Item was imported from our schema file
-      res.json(items)  
-    })
+      const items = await Item.find(); //Item was imported from our schema file
+      res.json(items);
+    });
 
     app.post('/item', async (req, res) => {
-      let item = new Item({name:req.body.name,price:req.body.price}) //Item was imported from our schema file
-      const result = await item.save()
-      res.json(result)  
-    })
-
+      let item = new Item({ name: req.body.name, price: req.body.price }); //Item was imported from our schema file
+      const result = await item.save();
+      res.json(result);
+    });
 
     app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-    })
-
-});
+      console.log(`Example app listening at http://localhost:${port}`);
+    });
+  });
 
 
 ```
@@ -677,15 +709,15 @@ mongoose.connect('mongodb://localhost:27017/my_database',{ useNewUrlParser: true
 
 ## Lab Overview
 
-Your engineering team at ABC Solutions Company has just adopted MongoDB as the their primary database for storing employee data. You are in charge of migrating all of the endpoints to read and write to MongoDB instead of the JSON file.
+Your engineering team at ABC Solutions Company has just adopted MongoDB as their primary database for storing employee data. You are in charge of migrating all of the endpoints to read and write to MongoDB instead of the JSON file.
 
-In addition you must also use Mongoose schemas to model your employee data. Your code base is starting to get complex, so it is recommended to have Mongoose schemas in their own folder calls `models` and import them as needed.
+In addition, you must also use Mongoose schemas to model your employee data. Your code base is starting to get complex, so it is recommended to have Mongoose schemas in their own folder calls `models` and import them as needed.
 
-Lastly, your MongoDB database won't have all of the employee data so you will need to import in the in the employee data from the JSON file.
+Lastly, your MongoDB database won't have all of the employee data so you will need to import in the employee data from the JSON file.
 
 ## Lab Starter Code
 
-Your lab for Unit 2B will start off where your lab for unit 2A ended off. 
+Your lab for Unit 2B will start off where your lab for unit 2A ended. 
 
 You can clone your starter code here:
 [LINK]
@@ -722,7 +754,7 @@ You can find the lab solution here:
 
 ## Knowledge Check 1
 
-In MongoDB, which of the following is anagalous to a record in a relational database
+In MongoDB, which of the following is analogous to a record in a relational database
 
 ```
 A. MongoRow
