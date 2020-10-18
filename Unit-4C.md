@@ -932,7 +932,18 @@ You will also be given some starter React code that does a GET request from the 
 You can access the starter code files here:
 [LINK]
 
-Be sure to install all the dependencies in both the server folder and the client folder.
+Be sure to install all the dependencies in both the server folder and the client folder. Also, run the server before you start the client.
+
+
+To install server dependencies:
+```
+$ npm install
+```
+
+To run the server:
+```
+$ node .
+```
 
 To install client dependencies:
 ```
@@ -944,15 +955,7 @@ To run the client:
 $ npm start
 ```
 
-To install server dependencies:
-```
-$ npm install
-```
 
-To run the server:
-```
-$ node .
-```
 
 ## Lab Solution
 You can view the lab solution here:

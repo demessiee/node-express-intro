@@ -734,15 +734,23 @@ $ node index.js
 ```
 
 ### Seeding your MongoDB Database with JSON Data
-To seed your MongoDB database run the following(make sure to run it in the same directory as your JSON file):
 
-```
-$ mongoimport --jsonArray --db test --collection employees --file employee_data.json
-2020-10-05T01:50:27.535-0700    connected to: mongodb://localhost/
-2020-10-05T01:50:27.637-0700    943 document(s) imported successfully. 0 document(s) failed to import.
-```
+To import the all employees from the employee data JSON file into your MongoDB database as documents, take the following steps:
 
-If you need a fresh `employee_data.json` file at any point you can make a new copy from the starter code link.
+1. Connect to your MongoDB instance with Compass
+2. Select the database you want to use
+3. Select the `employees` collection, create a new collection named `employees` if it doesn't exist yet
+4. Click the Add Data dropdown, click Import File, browse to `employee_data_master_copy.json`, make sure to select JSON as the file type, then click Import.
+5. Verify that your data was added successfully (there should be 943 documents)
+
+
+Here's the official documentation on importing data into MongoDB.
+https://docs.mongodb.com/compass/master/import-export
+
+
+
+
+If you need a fresh `employee_data.json` file at any point you can copy over the contents from `employee_data_master_copy.json` which should also be in the public folder of your lab.
 
 ## Lab Solution
 
