@@ -200,10 +200,14 @@ Here are some general things to test:
 * Verify that a verified Company can get a list of all Candidates that applied to a job they created (and that other companies can't)
 * Verify that only qualified candidates get added to a Job's qualified list
 
+
+## Starter Code
+
+There isn't any starter code for the final project. Use the best practices you've learned to set up your project folder structure.
+
 ## Solution
 
 The solution for the Final Project can be found here:
-[Link]
-
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-Node-Express-Final-Project-Solution
 
 
