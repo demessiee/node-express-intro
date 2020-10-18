@@ -1079,21 +1079,25 @@ npm install express
 4. Create an index.js file:
 
 ```js
+//index.js
 const express = require('express')
 const path = require('path')
 const app = express()
+const port = 8080
 
 app.use(express.static(path.join(__dirname, 'build')))
 
-app.get('/ping', (req, res) => {
-  return res.send('pong')
+app.get('/api', (req, res) => {
+  return res.json({message:"hello world"})
 })
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 
-app.listen(8080)
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+})
 ```
 At the top, we configure the server to statically serve the React build folder.
 
@@ -1107,11 +1111,23 @@ npx create-react-app client
 
 6. Add a proxy anywhere in the top level of your Package.json:
 ```js
-"proxy": "http://localhost:8080"
+  ...
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:8080",
+  ...
 ```
 6. We edit the package.json in our root folder (not the React package.json) start script to be:
 ```js
-"start": cd client && npm run build && node index.js
+  "scripts": {
+    "start":"npm run build && node .",
+    "build":"cd client && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
 ```
 7. Now we can build our production build and then run our Node server with:
 
@@ -1121,9 +1137,61 @@ npx create-react-app client
 
 9. If we want to fetch any data from our Express API we can use the following in our client:
 
+In `/client/src/App.js`:
 ```js
-fetch("/api/ping")
+//App.js
+import React, {useEffect} from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  const getData = ()=> {
+    fetch("/api")
+    .then( res.json())
+    .then( res => {
+      console.log(res)
+    })
+  }
+  useEffect(() => {
+    getData()
+  },[])
+  return (
+    <div>
+      Fetched data in console log
+    </div>
+  );
+}
+
+export default App;
+
 ```
+**Note:** Whenever we edit our React client, we need to rebuild it.
+
+10. If we want to use this solution with React Router we need to add an `*` at the end of our / path that serves our frontend:
+
+```js
+//index.js
+const express = require('express')
+const path = require('path')
+const app = express()
+const port = 8080
+
+app.use(express.static(path.join(__dirname, 'build')))
+
+app.get('/api', (req, res) => {
+  return res.json({message:"hello world"})
+})
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+})
+```
+
+The `/*` is a wild card that makes the endpoint serve on all URL routes. Make sure to put the endpoint at the bottom of your index.js file otherwise it will trigger instead of your API endpoints as well.
 
 
 # Unit 4-D Lab
