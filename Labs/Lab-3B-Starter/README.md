@@ -12,24 +12,24 @@ Create a [Github](https://github.com/) account if you don't have one already.
 Log in to GitHub and create a new repository.
 Give the repository any name and make sure to check the option to have a README.
 
-![create_github_repo](./images/create_github_repo.png)
+![create_github_repo](/images/create_github_repo.png)
 
 Clone your repo locally, edit the README and commit your changes to make sure that you can push to the repo.
 
 Once your repo is created, head over to [circleci.com](https://circleci.com/signup/) and sign up for an account using GitHub.
 
-![circleci_login](./images/circleci_login.png)
+![circleci_login](/images/circleci_login.png)
 
 Pick your own username as the organization when Circle Ci prompts you to do so.
 
 You should now be in the projects section of Circle CI. Click `Set Up Project` next the repo you just created.
 
-![circleci_projects](./images/circleci_projects.png)
+![circleci_projects](/images/circleci_projects.png)
 
 
 Circle CI will attempt to a merge a `config.yml` file into your repo that will define how the CI pipeline will look like. Be sure to select the Node template for your config file and then click Add Config.
 
-![circleci_add_config](./images/circleci_add_config.png)
+![circleci_add_config](/images/circleci_add_config.png)
 
 *Note: * If CircleCI is glitching and says it can add the file to your repo, create a folder named `.circle` and put copy the contents of the config file and store it in `.circleci/config.yml`.
 
@@ -40,15 +40,15 @@ If you go back to GitHub, you will see that there will be a pull request waiting
 
 Now if you go back to Circleci you should see that a pipeline was started in the Pipelines section. The pipeline was kicked off by the pull request commit that was just made.
 
-![failed_pipeline](./images/circleci_failed_pipeline_1.png)
+![failed_pipeline](/images/circleci_failed_pipeline_1.png)
 
 After waiting a few seconds, you'll notice that this pipeline fails.
 
 Click the red fail icon and then click the rectangle with the red exclamation mark on the next page to finally get to the pipeline error report page.
 
-![failed_pipeline](./images/circle_failed_page.png)
+![failed_pipeline](/images/circle_failed_page.png)
 
-![failed_pipeline](./images/circleci_fail_test_4.png)
+![failed_pipeline](/images/circleci_fail_test_4.png)
 
 You'll notice on the pipeline report page that your first 3 pipeline stages passed:
   * Stage 1 - Spin up environment (sets up a docker container)
@@ -117,7 +117,7 @@ If we look back at the Pipeline page, we can see that another CI pipeline was st
 
 Click the red fail icon, and then click the rectangle with the exclamation mark on the next page. This should take you to the error report page again:
 
-![fail_5_6](./images/circleci_fail_5_6.png)
+![fail_5_6](/images/circleci_fail_5_6.png)
 
 
 Our pipeline passed stage 4 since we added the package.json file, but now it fails the following stages:
@@ -175,7 +175,7 @@ git push
 
 If we go back to the Pipelines page, we can see that another CI pipeline was triggered. However, this one fails the 8th and final test - Run NPM Tests.
 
-![fail_8](./images/circleci_fail_8.png)
+![fail_8](/images/circleci_fail_8.png)
 
 Lets take a look at the error report:
 ```bash
@@ -243,7 +243,7 @@ You can get to the pipeline reporting screen the same way as you did before to s
 
 Eventually, the pipeline should pass all of its stages.
 
-![success](./images/circle_ci_success.png)
+![success](/images/circle_ci_success.png)
 
 You can view the logs of any of the successful stages by clicking on the dropdown of the stage.
 
