@@ -10,7 +10,7 @@ Create the following endpoints:
 * POST /api/users/user - inserts user with specified body
 * PUT /api/users/user - updates user with specified body
 * DELETE /api/users/user/:id - deletes user with specified id
-* POST /api/users/login - checks if the id (their email) and password combination exists in the user collection. If true returns, `{validUser:true}`, if false returns `{validUser:false}`
+* POST /api/users/login - checks if the id (their email) and password combination exists in the user collection. If true returns, the user object back to the client without the password.
 
 
 #### Data Schemas

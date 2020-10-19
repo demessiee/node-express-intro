@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Box, Button, Container, Typography, TextField} from '@material-ui/core'
-function SignUp(props){
+function Login(props){
     const [input,setInput] = useState({
         id:"",
         password:""
@@ -11,7 +11,7 @@ function SignUp(props){
         setInput(temp)
     }
     const handleSubmit = () => {
-        fetch("http://localhost:8080/api/users/user",{
+        fetch("http://localhost:8080/api/users/login",{
             method: 'POST', 
             headers: {
               'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ function SignUp(props){
                 </Box>
                 <Box margin="4px">
                     <Button onClick={handleSubmit} size="large" variant="outlined">
-                        Sign Up
+                        Login
                     </Button>
                 </Box>
                 
@@ -52,4 +52,4 @@ function SignUp(props){
     )
 }
 
-export default SignUp
+export default Login

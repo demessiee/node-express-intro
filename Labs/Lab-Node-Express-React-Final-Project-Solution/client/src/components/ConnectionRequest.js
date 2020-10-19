@@ -4,6 +4,9 @@ import {Box, Button, Card,CardContent, Grid,  IconButton} from '@material-ui/cor
 import ProfileIcon from '@material-ui/icons/AccountCircle';
 
 function ConnectionRequest(props){
+    const handleClick = () => {
+        props.addConnection(props.id)
+    }
     return (
         <Box margin="20px">
         
@@ -18,16 +21,15 @@ function ConnectionRequest(props){
                             </IconButton>
                     </Grid>
 
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                         <Box padding="12px">         
-                            {props.intro}
+                           {`Connection request from ${props.id}`}
                         </Box>
                     </Grid>
 
-                <Grid item xs={3}>
+                <Grid item xs={2}>
                     <Box>   
-                       <Button style={{margin:"4px"}}>Ignore</Button>
-                       <Button style={{margin:"4px"}} color ="primary" variant="contained">Accept</Button>
+                       <Button onClick={handleClick} style={{margin:"4px"}} color ="primary" variant="contained">Accept</Button>
                     </Box>
                 </Grid>
             </Grid>

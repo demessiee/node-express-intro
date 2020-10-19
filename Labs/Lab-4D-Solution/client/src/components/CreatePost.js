@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Button, Card,CardContent,Divider} from '@material-ui/core'
+import {Box, Button, Card,CardContent,Divider, TextField} from '@material-ui/core'
 
 import EditIcon from '@material-ui/icons/Edit';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
@@ -10,12 +10,17 @@ import DescriptionIcon from '@material-ui/icons/Description';
 function CreatePost(props){
     return (
         <Box margin="20px">
-            <Card variant="outlined" style={{backgroundColor:"#f9fbe7", height:"100px"}}>
+            <Card variant="outlined" style={{backgroundColor:"#f9fbe7"}}>
                 <CardContent>
-                    <Box>
+                    <Box display="flex">
                         <Button startIcon={<EditIcon/>}>Create New Post</Button>
+                        <TextField style={{width:"340px", margin:"10px"}} variant="outlined"/>
+
                     </Box>
-                    <Divider/>
+                
+                </CardContent>
+                <Divider/>
+                <CardContent>
                     <Box marginTop="4px">
                             <Button startIcon={<AddAPhotoIcon/>}>Add Photo</Button>
                             <Button startIcon={<VideocamIcon/>}>Add Video</Button>

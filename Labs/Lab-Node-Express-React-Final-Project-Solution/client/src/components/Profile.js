@@ -3,17 +3,21 @@ import {Container,Grid,Box} from '@material-ui/core'
 import Advertisement from './Advertisement.js'
 import Experience from './Experience.js'
 import ProfileOverview from './ProfileOverview.js'
+import { Redirect } from "react-router-dom"
 
 
 
-function Profile(){
+function Profile(props){
+    if(props.user === null){
+        return <Redirect to="/login"/>
+    }
     return (
     <Box margin={"80px"}>
         <Container>
             <Grid container>
 
                 <Grid item xs={8}>
-                    <ProfileOverview/>
+                   <ProfileOverview setUser = {props.setUser} user={props.user}/>
                    <Experience/>
 
 

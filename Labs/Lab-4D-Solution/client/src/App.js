@@ -31,6 +31,7 @@ function App(){
           <Route path="/home" render={(props)=> <Home {...props}/>}/>
           <Route path="/connections" render={(props)=> <Connections {...props}/>}/>
           <Route path="/profile" render={(props)=> <Profile {...props}/>}/>
+          <Route render={(props)=> <Home {...props}/>}/>
 
         </Switch>
         </Router>

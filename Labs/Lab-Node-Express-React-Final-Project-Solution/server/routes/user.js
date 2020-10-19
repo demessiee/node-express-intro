@@ -25,9 +25,10 @@ router.post('/login', async (req, res) => {
     
     let user = await User.findOne({_id:req.body.id,password:req.body.password})
     if(user === null){
-        res.json({validUser:false})
+        res.json(user)
     }else{
-        res.json({validUser:false})
+        delete user.password
+        res.json(user)
     }
     
 })
@@ -49,7 +50,7 @@ router.post('/user', async (req, res) => {
 })
 
 router.put('/user', async (req, res) => {
-
+    console.log(req.body,req.body.connections)
     if(req.body.id === null)
         res.status(400).send("id not found")
 

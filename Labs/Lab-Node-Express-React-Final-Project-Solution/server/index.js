@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 const user = require('./routes/user.js')
+const post = require('./routes/post.js')
+
 const app = express()
 const port = 8080
 
@@ -18,6 +20,8 @@ mongoose.connect('mongodb://localhost:27017/final',{ useNewUrlParser: true }).th
   app.use("/static",express.static(path.join(__dirname, 'public')))
 
   app.use('/api/users',user)
+  app.use('/api/posts',post)
+
 
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
