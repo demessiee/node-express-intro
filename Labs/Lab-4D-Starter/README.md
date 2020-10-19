@@ -14,11 +14,11 @@ You will be only be building a mockup of the LinkedIn website so you won't need 
 Here are some screenshots of the solution:
 
 Home:
-![linkedin-home](./images/linkedin-home.png)
+![linkedin-home](/images/linkedin-home.png)
 Connections:
-![linkedin-connections](./images/linkedin-connections.png)
+![linkedin-connections](/images/linkedin-connections.png)
 Profile:
-![linkedin-profile](./images/linkedin-profile.png)
+![linkedin-profile](/images/linkedin-profile.png)
 
 You will use Material UI and React Router to build a multi-paged React application.
 
