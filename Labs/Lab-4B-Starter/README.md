@@ -6,7 +6,7 @@ Your lab assignment will be to create a carousel React component similar to the 
 https://automobiles.honda.com/
 
 Here is a screenshot of the solution:
-![carousel](./images/carousel.png)
+![carousel](/images/carousel.png)
 
 The product details and images will be provided for you, you just have to create the React templating and state logic so that you can show one image at a time in the Carousel. 
 

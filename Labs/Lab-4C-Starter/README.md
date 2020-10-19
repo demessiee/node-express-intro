@@ -4,7 +4,7 @@
 Your stakeholders at ABC Solutions company want you to create a user interface for the employee data API that you created earlier in Lab 2B.
 
 Here's an example of what the solution should look like:
-![employee_frontend](./images/employee_frontend.png)
+![employee_frontend](/images/employee_frontend.png)
 
 Your user interface should have the following features:
 * A table that displays all the employees that have been queried. This should show all employees upon launch.
