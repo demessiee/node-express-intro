@@ -10,10 +10,8 @@ Create the following endpoints:
 * POST /api/users/user - inserts user with specified body
 * PUT /api/users/user - updates user with specified body
 * DELETE /api/users/user/:id - deletes user with specified id
+* POST /api/users/login - checks if the id (their email) and password combination exists in the user collection. If true returns, `{validUser:true}`, if false returns `{validUser:false}`
 
-* POST /api/login - checks if the id (their email) and password exists in the user database. If true returns, `{validUser:true}`, if false returns `{validUser:false}`
-
-* POST /api/signup - creates a new user with a specified username and password
 
 #### Data Schemas
 Your collections should have the following schemas:
@@ -26,8 +24,7 @@ Users
   password:String, //this is required
   full_name: String, //first and last name combined with an undescore, e.g john_smith
   biography:String,
-  skills:[String],//array of skills, e.g. [javascript,node.js]
-  experience:[Experience]//array of Experiences
+  experiences:[Experience]//array of Experiences
   connections: [String]//array of accepted connections
   connectionRequests: [String]//array of pending connection requests
 }
@@ -40,14 +37,14 @@ Experiences
   years:Number,
   description:String
 }
-
+```
 
 
 ### Frontend Requirements
 
 
 Unverified Users should be able to:
-* Make an account at `/signup`
+* Make an account at `/signup` with a username and password
 * Visit Log in page `/login`
 * All other pages should redirect the Unverified User back to `/signup/
 

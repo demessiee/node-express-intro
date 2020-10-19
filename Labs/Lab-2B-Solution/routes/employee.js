@@ -65,7 +65,7 @@ router.post('/employee', async (req, res) => {
     if(req.body.id === null)
         res.status(400).send("id not found")
 
-    let result = employee.save()
+    let result = await employee.save()
     res.json(result)
         
 

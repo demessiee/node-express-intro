@@ -4,11 +4,15 @@ import Post from './Post.js'
 import Advertisement from './Advertisement.js'
 import HomeOverview from './HomeOverview.js'
 import HomeSubOverview from './HomeSubOverview.js'
+import { Redirect } from "react-router-dom"
 
 import CreatePost from './CreatePost.js'
 
 
-function Home(){
+function Home(props){
+    if(props.user === null){
+        return <Redirect to="/login"/>
+    }
     return (
     <Box margin={"80px"}>
         <Container>

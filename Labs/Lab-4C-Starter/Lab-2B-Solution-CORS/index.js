@@ -7,7 +7,7 @@ const employees = require('./routes/employee.js')
 const app = express()
 const port = 8000
 
-var corsOptions = {
+let corsOptions = {
   origin: 'http://localhost:3000', //change this to your client's URL if its not on 3001
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
