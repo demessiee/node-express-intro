@@ -26,7 +26,7 @@ Companies
 * GET /companies/company/:id - sends company with specified id
 * POST /companies/company - inserts company with specified body
 * PUT /companies/company - updates company with specified body
-* DELETE /companies/company/:id - deletes company with specified body
+* DELETE /companies/company/:id - deletes company with specified id
 * POST /companies/login - authenticates a company's credentials and then sends a JWT token if successful
 
 Candidates

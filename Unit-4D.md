@@ -1258,6 +1258,8 @@ You should create separate component files for the Home page, Connections page, 
 
 Some of the components in the screenshot are more fleshed out than others(e.g. the posts). To start off, just try to get the layout correct for each page using empty cards before adding more details to any individual components.
 
+**Hint:** The AppBar is pinned to the top of the screen and if try to render some basic text it will get stuck behind the AppBar. You'll need to add some CSS margin to whatever you are rendering for it to appear below the AppBar.
+
 ## Lab Solution
 You can view the lab solution here:
 https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4D-Solution
