@@ -7,7 +7,16 @@ const axios = require('axios')
     returns a Promise that contains an object including the name, height, mass, hair_color, skin_color and gender 
     of the person that is requested. Note: only ids 1-84 are valid.
 /****/
-function getPeople(id){
+async function getPeople(id){
+    let res = await axios("https://swapi.dev/api/people/" + id)
+    return {
+        name:res.data.name,
+        height:res.data.height,
+        mass:res.data.mass,
+        hair_color:res.data.hair_color,
+        skin_color:res.data.skin_color,
+        gender:res.data.gender
+    }
    
 }
 

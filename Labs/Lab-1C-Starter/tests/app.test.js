@@ -3,7 +3,8 @@ const starwars = require("../src/starwars.js")
 test("getPeople", () => {
     return starwars.getPeople(1).then(data => {
         expect(data).toEqual({
-            name: '172',
+            name: 'Luke Skywalker',
+            height: '172',
             mass: '77',
             hair_color: 'blond',
             skin_color: 'fair',
