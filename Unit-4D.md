@@ -1201,9 +1201,9 @@ The `/*` is a wild card that makes the endpoint serve on all URL routes. Make su
 Your lab assignment will be to create a LinkedIn clone mockup using React Router and components from Material UI. 
 
 The LinkedIn clone will have the following three pages:
-* Home - where you can see a newsfeed of LinkedIn posts
-* Connections - where you can view your connection requests
-* Profile - where you can view your profile
+* /home - where you can see a newsfeed of LinkedIn posts
+* /connections - where you can view your connection requests
+* /profile - where you can view your profile
 
 You will be only be building a mockup of the LinkedIn website so you won't need to build any actual functionality besides switching between the pages in the navigation bar.
 
@@ -1244,16 +1244,23 @@ https://material-ui.com/components/box/
 
 ## Lab Starter Code
 
-You will be given a basic Navigation Bar that changes the URL using React Router links. Nothing will happen when you click the links though, so you will have to add Route components to render the the pages accodingly.
+You will be given a basic Navigation Bar that changes the URL using React Router links. Nothing will happen when you click the links though, so you will have to add Route components to render the the pages accordingly.
 
-You should create separate component files for the Home page, Connections page, and Profile page.
-You should also create separate components for each differently colored block shown in the solution example screenshot and use those to build your main page components.
+You can access the starter code here:
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4D-Starter
 
-Some of the examples in the screenshot are more fleshed out than others(e.g. the posts). To start off, just try to get the layout correct for each page using empty cards before adding more details to any individual components.
+Make sure to install all the client dependencies with:
+```
+npm install
+```
+
+You should create separate component files for the Home page, Connections page, and Profile page and render them appropriately using Route components. You should also create separate components for each differently colored block shown in the solution example screenshots and use those to build your main page components.
+
+Some of the components in the screenshot are more fleshed out than others(e.g. the posts). To start off, just try to get the layout correct for each page using empty cards before adding more details to any individual components.
 
 ## Lab Solution
 You can view the lab solution here:
-https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4C-Solution
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-4D-Solution
 
 # Knowledge Check Answers
 

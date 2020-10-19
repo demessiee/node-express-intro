@@ -3,10 +3,6 @@ import React,{useState} from 'react'
 import {Tabs,Tab,AppBar} from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom"
 
-import Home from './components/Home.js'
-import Connections from './components/Connections.js'
-import Profile from './components/Profile.js'
-
 
 function App(){
   const [activeTab,setActiveTab] = useState(0)
@@ -27,12 +23,6 @@ function App(){
 
             </Tabs>
         </AppBar>
-        <Switch>
-          <Route path="/home" render={(props)=> <Home {...props}/>}/>
-          <Route path="/connections" render={(props)=> <Connections {...props}/>}/>
-          <Route path="/profile" render={(props)=> <Profile {...props}/>}/>
-
-        </Switch>
         </Router>
     )
 }
