@@ -9,7 +9,7 @@ Here you can view the Craiglist home page here:
 * https://sfbay.craigslist.org/
 
 This is an example mockup solution:
-![craigslist_mockup](./images/craigslist_mockup.png)
+![craigslist_mockup](/images/craigslist_mockup.png)
 
 To complete this lab, please create the following React components:
 
