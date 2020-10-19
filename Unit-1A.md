@@ -86,11 +86,11 @@ You can close the REPL by running *Ctrl+D* or by typing *.exit*
 
 ## Running a Node.js file
 
-Create a project directory for this lab and create a file named index.js in your project directory:
+If you haven't already, create a project directory for this lab and create a file named index.js in your project directory:
 
 ```
-mkdir lab1a
-cd lab1a
+mkdir lecture1A
+cd lecture1A
 touch index.js
 ```
 

@@ -86,7 +86,7 @@
             * React Dev Tools
         *   Lab (1 hr 30 min)
             * The student will create several React components and combine them together to layout a basic web page.
-    *   [Unit 4A (2 hours): ](Unit-4B.md) 
+    *   [Unit 4A (2 hours):State and Fetching data](Unit-4B.md) 
         *   Lecture (30 min)
             * State 
             * Handling Events
@@ -96,7 +96,7 @@
             * Conditional Rendering
         *   Lab (1 hr 30 min)
             *  The student will create an interactive React component that changes state in response to user click events.
-    *   [Unit 4C (2 hours): ](Unit-4C.md) 
+    *   [Unit 4C (2 hours): Forms and Lists](Unit-4C.md) 
         *   Lecture (30 min)
             * Lists and Keys
             * Tables
@@ -104,7 +104,7 @@
             * Composition
         *   Lab (1 hr 30 min)
             *  The student will create a React frontend that allows users to interact with the CRUD API from Lab 2B
-    *   [Unit 4D (2 hours): ](Unit-4D.md) 
+    *   [Unit 4D (2 hours): Material UI and React Router](Unit-4D.md) 
         *   Lecture (30 min)
             * Material UI
             * React Router
