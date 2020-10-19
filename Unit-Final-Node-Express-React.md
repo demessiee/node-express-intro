@@ -106,7 +106,6 @@ Be sure to install all dependencies with:
 $ npm install
 ```
 
-
 Here's a recommended way to approach this lab:
 * Start by coding out the Express API. Then Test the API functionality with Advanced Rest Client.
 * Then try to get the Sign Up feature working and verify that you can sign up a new user through the React client
