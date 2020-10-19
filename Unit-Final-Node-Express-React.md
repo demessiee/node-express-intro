@@ -98,8 +98,13 @@ Everything else should remain as a mockup
 You will be given the solution code from Lab 4D as a starting point. 
 
 You can get the starter code here:
-[LINK]
+https://github.com/flatiron-school/node-express-intro/tree/main/Labs/Lab-Node-Express-React-Final-Project-Starter
 
+Be sure to install all dependencies with:
+
+```
+$ npm install
+```
 
 
 Here's a recommended way to approach this lab:
