@@ -52,8 +52,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-function logger(req,res,next){
-  console.log(req)
+function logger(req, res, next) {
+  console.log(req.headers)
+  /* you can log anything you want; req.headers is just a
+  quick example that won't completely overfill our command-line.
+  */
   next()
 }
 
@@ -76,6 +79,8 @@ When we want to apply a middleware, we apply it by passing it into app.use(). By
 Lets try running the server and going to localhost:3000.
 
 If you look back at your terminal, you can see that a bunch of stuff relating to the request was logged. If you refresh the browser and go to localhost:3000 again, the log will happen again.
+
+To learn about using the `err` parameter to create your own error handling middleware you can [reference the official Express documentation](https://expressjs.com/en/guide/error-handling.html). If time permits we can review this together during lab review time.
 
 ## Selectively applying middleware
 
