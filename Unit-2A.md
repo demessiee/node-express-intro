@@ -484,7 +484,7 @@ C. To enable middleware to work for your server
 D. To enable your server to send static assets
 ```
 
-## Modularing Routes
+## Modularizing Routes
  
 **Best Practice:** It might seen easier to maintain all of our endpoint routes within the index.js file right now, however once our codebase gets more complex it is better to store all our routes in a separate routes.js file and import it into our index.js file.
 
